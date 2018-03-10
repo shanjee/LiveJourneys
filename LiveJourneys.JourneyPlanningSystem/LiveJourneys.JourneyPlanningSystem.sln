@@ -1,15 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveJourneys.JourneyPlanningSystem.Models", "LiveJourneys.JourneyPlanningSystem.Models\LiveJourneys.JourneyPlanningSystem.Models.csproj", "{B7CB0520-1682-4BB8-859B-52567B886F4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveJourneys.JourneyPlanningSystem.Data", "LiveJourneys.JourneyPlanningSystem.Data\LiveJourneys.JourneyPlanningSystem.Data.csproj", "{0DC1B39C-5EA9-4E98-B0BD-AD990608856F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveJourneys.JourneyPlanningSystem.Service", "LiveJourneys.JourneyPlanningSystem.Service\LiveJourneys.JourneyPlanningSystem.Service.csproj", "{B861B1AF-47D5-4A03-8D21-6C913CD49C62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveJourneys.JourneyPlanningSystem.Business", "LiveJourneys.JourneyPlanningSystem.Service\LiveJourneys.JourneyPlanningSystem.Business.csproj", "{B861B1AF-47D5-4A03-8D21-6C913CD49C62}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveJourneys.JourneyPlanningSystem.Desktop", "LiveJourneys.JourneyPlanningSystem.Desktop\LiveJourneys.JourneyPlanningSystem.Desktop.csproj", "{F630BD2B-37AA-40C0-85E8-BF99C097F170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveJourneys.JourneyPlanningSystem.WebService", "LiveJourneys.JourneyPlanningSystem.WebService\LiveJourneys.JourneyPlanningSystem.WebService.csproj", "{496B8AC6-9642-4BE1-9BF5-8A57A6D3375E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveJourneys.JourneyPlanningSystem.Web", "LiveJourneys.JourneyPlanningSystem.Web\LiveJourneys.JourneyPlanningSystem.Web.csproj", "{D9BE9695-0D7D-4C39-AA8E-B1E1D3063FA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{F630BD2B-37AA-40C0-85E8-BF99C097F170}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F630BD2B-37AA-40C0-85E8-BF99C097F170}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F630BD2B-37AA-40C0-85E8-BF99C097F170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{496B8AC6-9642-4BE1-9BF5-8A57A6D3375E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{496B8AC6-9642-4BE1-9BF5-8A57A6D3375E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{496B8AC6-9642-4BE1-9BF5-8A57A6D3375E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{496B8AC6-9642-4BE1-9BF5-8A57A6D3375E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9BE9695-0D7D-4C39-AA8E-B1E1D3063FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9BE9695-0D7D-4C39-AA8E-B1E1D3063FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9BE9695-0D7D-4C39-AA8E-B1E1D3063FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9BE9695-0D7D-4C39-AA8E-B1E1D3063FA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
