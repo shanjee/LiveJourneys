@@ -53,6 +53,7 @@
     <Compile Include="StationMapping.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserType.cs" />
+    <Compile Include="UserTypeId.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

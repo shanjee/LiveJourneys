@@ -38,7 +38,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
 
                 var user = manageUsers.VerifyUser(username,password);
 
-                if (user != null && user.TypeId == 1)
+                if (user != null && user.TypeId == (int)UserTypeId.Admin)
                 {
                     new frmMain().Show();
                     this.Hide();

@@ -56,7 +56,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
 
             if(filter != null)
             {
-                query.Where(filter);
+                query = query.Where(filter);
             }
 
             foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
