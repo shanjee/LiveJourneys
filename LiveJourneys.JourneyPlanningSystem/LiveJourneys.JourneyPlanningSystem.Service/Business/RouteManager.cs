@@ -56,7 +56,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
 
         public List<Station> GetAllStations()
         {
-            var stations = stationContext.GetAll().ToList();
+            var stations = unitOfWork.Stations.Get().ToList();
 
             return stations;
         }
