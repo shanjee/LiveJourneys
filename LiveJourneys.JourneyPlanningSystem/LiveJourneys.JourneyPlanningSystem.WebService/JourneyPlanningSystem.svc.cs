@@ -24,6 +24,7 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService
             var path = manager.FindPath(fromStationId, toStationId);
 
             var info = new StationRouteInfo(path);
+            info.Distance = manager.GetDistance(path);
 
             return info;
         }
