@@ -15,7 +15,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service
         /// <summary>
         /// Constructs a new ManageUsers instance.
         /// </summary>
-        /// <param name="repository">Repository based on IBasicRepository</param>
+        /// <param name="repository">Repository based on IBasicRepository.</param>
         public ManageUsers(IBasicRepository<User> repository)
         {
             this._repository = repository;
@@ -25,7 +25,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service
         /// Create new user.
         /// </summary>
         /// <param name="newUser">new user object</param>
-        /// <returns>if value is greater than zero then object added sucees else faild</returns>
+        /// <returns>if value is greater than zero then object added success else failed.</returns>
         public async Task<int> CreateUser(User newUser)
         {
             if(newUser == null)
@@ -42,7 +42,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service
         /// </summary>
         /// <param name="userName">Username</param>
         /// <param name="password">Password</param>
-        /// <returns>if value is greater than zero then object added sucees else faild</returns>
+        /// <returns>if value is greater than zero then object added success else failed.</returns>
         public User VerifyUser(string userName, string password)
         {
             if(string.IsNullOrWhiteSpace(userName))
@@ -63,7 +63,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service
         /// Hash the password. it is simple solution but not stong way to hash the password.
         /// </summary>
         /// <param name="password">Password</param>
-        /// <returns>The string representation, in base 64</returns>
+        /// <returns>The string representation, in base 64.</returns>
         private string HashPassword(string password)
         {
             if (string.IsNullOrWhiteSpace(password))
