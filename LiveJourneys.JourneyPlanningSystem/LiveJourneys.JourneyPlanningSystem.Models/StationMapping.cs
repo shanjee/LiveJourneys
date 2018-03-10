@@ -33,8 +33,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
 
         public virtual Line Line { get; set; }
 
-        public virtual Station Station { get; set; }
+        public virtual Station FromStation { get; set; }
 
-        public virtual Station Station1 { get; set; }
+        public virtual Station ToStation { get; set; }
     }
 }
