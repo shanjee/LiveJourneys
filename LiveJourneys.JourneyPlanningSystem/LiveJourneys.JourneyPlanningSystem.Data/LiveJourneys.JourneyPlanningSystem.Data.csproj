@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicRepository.cs" />
+    <Compile Include="BasicEFRepository.cs" />
+    <Compile Include="BasicInMemoryRepository.cs" />
     <Compile Include="JourneyPlanningSystemDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IBasicRepository.cs" />

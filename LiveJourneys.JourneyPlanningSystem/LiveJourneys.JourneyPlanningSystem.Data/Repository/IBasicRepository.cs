@@ -27,20 +27,20 @@ namespace LiveJourneys.JourneyPlanningSystem.Data.Repository
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<int> Create(TEntity entity);
+        Task<TEntity> Create(TEntity entity);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<int> Update(TEntity entity);
+        Task<TEntity> Update(TEntity entity);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<int> Delete(int id);
+        Task<TEntity> Delete(int id);
     }
 }

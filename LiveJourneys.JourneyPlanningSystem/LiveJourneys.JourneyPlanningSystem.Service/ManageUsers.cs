@@ -26,7 +26,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service
         /// </summary>
         /// <param name="newUser">new user object</param>
         /// <returns>if value is greater than zero then object added success else failed.</returns>
-        public async Task<int> CreateUser(User newUser)
+        public async Task<User> CreateUser(User newUser)
         {
             if(newUser == null)
             {

@@ -10,7 +10,7 @@ using System.Data.Entity.Migrations;
 
 namespace LiveJourneys.JourneyPlanningSystem.Data
 {
-    public class BasicRepository<TEntity> : IBasicRepository<TEntity> where TEntity : class, IEntity
+    public class BasicEFRepository<TEntity> : IBasicRepository<TEntity> where TEntity : class, IEntity
     {
         private readonly JourneyPlanningSystemDbContext _dbContext;
 
@@ -18,7 +18,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
         /// 
         /// </summary>
         /// <param name="dbContext"></param>
-        public BasicRepository(JourneyPlanningSystemDbContext dbContext)
+        public BasicEFRepository(JourneyPlanningSystemDbContext dbContext)
         {
             this._dbContext = dbContext;
         }
@@ -28,10 +28,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public async Task<int> Create(TEntity entity)
+        public async Task<TEntity> Create(TEntity entity)
         {
             _dbContext.Set<TEntity>().Add(entity);
-            return await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
+            return entity;
         }
 
         /// <summary>
@@ -39,11 +40,12 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<int> Delete(int id)
+        public async Task<TEntity> Delete(int id)
         {
             var entity = await this.GetById(id);
             _dbContext.Set<TEntity>().Remove(entity);
-            return await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
+            return entity;
 
         }
 
@@ -73,11 +75,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public async Task<int> Update(TEntity entity)
+        public async Task<TEntity> Update(TEntity entity)
         {
             _dbContext.Entry<TEntity>(entity).State = EntityState.Modified;
-            return await _dbContext.SaveChangesAsync();
-
+            await _dbContext.SaveChangesAsync();
+            return await GetById(entity.Id);
         }
     }
 }
