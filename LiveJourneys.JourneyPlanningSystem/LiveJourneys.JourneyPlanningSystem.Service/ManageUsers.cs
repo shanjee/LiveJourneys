@@ -43,19 +43,19 @@ namespace LiveJourneys.JourneyPlanningSystem.Service
         /// <param name="userName">Username</param>
         /// <param name="password">Password</param>
         /// <returns>if value is greater than zero then object added success else failed.</returns>
-        public User VerifyUser(string userName, string password)
+        public User VerifyUser(string username, string password)
         {
-            if(string.IsNullOrWhiteSpace(userName))
+            if(string.IsNullOrWhiteSpace(username))
             {
-                throw new ArgumentNullException(nameof(userName), "Username Should not be null,empty or white-space");
+                throw new ArgumentNullException(nameof(username), "Username should not be null,empty or white-space");
             }
 
             if (string.IsNullOrWhiteSpace(password))
             {
-                throw new ArgumentNullException(nameof(password), "Password Should not be null,empty or white-space");
+                throw new ArgumentNullException(nameof(password), "Password should not be null,empty or white-space");
             }
 
-            var userFromContext = _repository.GetAll().FirstOrDefault(u => u.UserName.Equals(userName) && u.Password.Equals(HashPassword(password)));
+            var userFromContext = _repository.GetAll().FirstOrDefault(u => u.UserName.Equals(username) && u.Password.Equals(HashPassword(password)));
             return userFromContext;
         }
 
@@ -68,7 +68,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service
         {
             if (string.IsNullOrWhiteSpace(password))
             {
-                throw new ArgumentNullException(nameof(password), "Password Should not be null,empty or white-space");
+                throw new ArgumentNullException(nameof(password), "Password should not be null,empty or white-space");
             }
 
             return Convert.ToBase64String(Encoding.ASCII.GetBytes(password));
