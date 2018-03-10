@@ -13,44 +13,64 @@ namespace LiveJourneys.JourneyPlanningSystem.Service
         private readonly IBasicRepository<User> _repository = null;
 
         /// <summary>
-        /// 
+        /// Constructs a new ManageUsers instance.
         /// </summary>
-        /// <param name="repository"></param>
+        /// <param name="repository">Repository based on IBasicRepository</param>
         public ManageUsers(IBasicRepository<User> repository)
         {
             this._repository = repository;
         }
 
         /// <summary>
-        /// 
+        /// Create new user.
         /// </summary>
-        /// <param name="newUser"></param>
-        /// <returns></returns>
+        /// <param name="newUser">new user object</param>
+        /// <returns>if value is greater than zero then object added sucees else faild</returns>
         public async Task<int> CreateUser(User newUser)
         {
+            if(newUser == null)
+            {
+                throw new ArgumentNullException(nameof(newUser), "User should not be null");
+            }
+
             newUser.Password = HashPassword(newUser.Password);
             return await _repository.Create(newUser);
         }
 
         /// <summary>
-        /// 
+        /// Verify the User credenticials.
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="userName">Username</param>
+        /// <param name="password">Password</param>
+        /// <returns>if value is greater than zero then object added sucees else faild</returns>
         public User VerifyUser(string userName, string password)
         {
+            if(string.IsNullOrWhiteSpace(userName))
+            {
+                throw new ArgumentNullException(nameof(userName), "Username Should not be null,empty or white-space");
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                throw new ArgumentNullException(nameof(password), "Password Should not be null,empty or white-space");
+            }
+
             var userFromContext = _repository.GetAll().FirstOrDefault(u => u.UserName.Equals(userName) && u.Password.Equals(HashPassword(password)));
             return userFromContext;
         }
 
         /// <summary>
-        /// 
+        /// Hash the password. it is simple solution but not stong way to hash the password.
         /// </summary>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="password">Password</param>
+        /// <returns>The string representation, in base 64</returns>
         private string HashPassword(string password)
         {
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                throw new ArgumentNullException(nameof(password), "Password Should not be null,empty or white-space");
+            }
+
             return Convert.ToBase64String(Encoding.ASCII.GetBytes(password));
         }
     }
