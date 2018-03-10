@@ -10,11 +10,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.Controllers
     {
         public ActionResult Index()
         {
-            var client = new JourneyPlanningSystemService.JourneyPlanningSystemClient();
+            //var client = new JourneyPlanningSystemService.JourneyPlanningSystemClient();
 
-            var all = client.GetAllStations();
+            //var all = client.GetAllStations();
 
-            var path = client.GetRouteInformation(1, 3);
+            //var path = client.GetRouteInformation(1, 3);
             return View();
         }
 
