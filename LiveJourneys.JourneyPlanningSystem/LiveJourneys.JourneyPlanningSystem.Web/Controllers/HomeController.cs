@@ -11,7 +11,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.Controllers
         public ActionResult Index()
         {
             var client = new JourneyPlanningSystemService.JourneyPlanningSystemClient();
-            var path = client.GetRouteInformation(0, 4);
+            var path = client.GetRouteInformation(1, 3);
             return View();
         }
 
