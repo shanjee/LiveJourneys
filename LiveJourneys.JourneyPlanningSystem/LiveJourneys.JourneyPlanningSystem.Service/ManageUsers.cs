@@ -1,5 +1,5 @@
-﻿using LiveJourneys.JourneyPlanningSystem.Data.Repository;
-using LiveJourneys.JourneyPlanningSystem.Models;
+﻿using LiveJourneys.JourneyPlanningSystem.Models;
+using LiveJourneys.JourneyPlanningSystem.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +10,15 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
 {
     public class ManageUsers
     {
-        private readonly IBasicRepository<User> _repository = null;
+        private readonly IUnitOfWork unitOfWork = null;
 
         /// <summary>
         /// Constructs a new ManageUsers instance.
         /// </summary>
         /// <param name="repository">Repository based on IBasicRepository.</param>
-        public ManageUsers(IBasicRepository<User> repository)
+        public ManageUsers(IUnitOfWork unitOfWork)
         {
-            this._repository = repository;
+            this.unitOfWork = unitOfWork;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
         /// </summary>
         /// <param name="newUser">new user object</param>
         /// <returns>if value is greater than zero then object added success else failed.</returns>
-        public async Task<User> CreateUser(User newUser)
+        public int CreateUser(User newUser)
         {
             if(newUser == null)
             {
@@ -43,7 +43,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
                 throw new ArgumentException("Password should not be null,empty or white-space");
             }
 
-            var result = _repository.GetAll().Where(u => u.UserName.Equals(newUser.UserName));
+            var result = unitOfWork.Users.Get(u=> u.UserName.Equals(newUser.UserName));
 
             if(result.Count() > 0)
             {
@@ -51,7 +51,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
             }
 
             newUser.Password = HashPassword(newUser.Password);
-            return await _repository.Create(newUser);
+            unitOfWork.Users.Add(newUser);
+            return unitOfWork.Complete();
         }
 
         /// <summary>
@@ -73,7 +74,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
             }
 
             password = HashPassword(password);
-            var userFromContext = _repository.GetAll().FirstOrDefault(u => u.UserName.Equals(username) && u.Password.Equals(password));
+            var userFromContext = unitOfWork.Users.Get(u => u.UserName.Equals(username) && u.Password.Equals(password)).FirstOrDefault();
             return userFromContext;
         }
 

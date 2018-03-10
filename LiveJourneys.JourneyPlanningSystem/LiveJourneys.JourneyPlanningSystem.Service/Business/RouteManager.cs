@@ -14,9 +14,12 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
 
         public List<int> DistinctStationIds { get; set; }
 
-        static JourneyPlanningSystemDbContext context = new JourneyPlanningSystemDbContext();
-        BasicEFRepository<StationMapping> basicEFRepository = new BasicEFRepository<StationMapping>(context);
-        BasicEFRepository<Station> stationContext = new BasicEFRepository<Station>(context);
+        //static JourneyPlanningSystemDbContext context = new JourneyPlanningSystemDbContext();
+        //BasicRepository<StationMapping> basicEFRepository = new BasicRepository<StationMapping>(context);
+        //BasicRepository<Station> stationContext = new BasicRepository<Station>(context);
+
+        IUnitOfWork unitOfWork = new UnitOfWork();
+
 
         #region Public function
         public RouteManager()
@@ -35,7 +38,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
             //    { 0,0,0,2.5,0,3 }, // 4
             //    { 0,0,2,0,0,0}, // 5
             //};
-            var dataList = basicEFRepository.GetAll().ToList();
+            var dataList = unitOfWork.StationMappings.Get().ToList();
             var distinctStationIds = GetDistinctStaionIds(dataList);
             var graph = GetGraphData(dataList,distinctStationIds);
             var tempStationIds = _algorithm.FindPath(graph, distinctStationIds.ToList().IndexOf(sourceNode), distinctStationIds.ToList().IndexOf(destinationNode));
@@ -44,7 +47,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
 
             foreach (int item in tempStationIds)
             {
-                listOfStations.Add(stationContext.GetById(distinctStationIds[item]).Result);
+                listOfStations.Add(unitOfWork.Stations.GetById(distinctStationIds[item]));
             }
             
 

@@ -1,5 +1,5 @@
-﻿using LiveJourneys.JourneyPlanningSystem.Data.Repository;
-using LiveJourneys.JourneyPlanningSystem.Models;
+﻿using LiveJourneys.JourneyPlanningSystem.Models;
+using LiveJourneys.JourneyPlanningSystem.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +10,16 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
 {
     public class ManageUserTypes
     {
-        private readonly IBasicRepository<UserType> _repository = null;
+        private readonly IUnitOfWork unitOfWork = null;
 
-        public ManageUserTypes(IBasicRepository<UserType> repository)
+        public ManageUserTypes(IUnitOfWork unitOfWork)
         {
-            this._repository = repository;
+            this.unitOfWork = unitOfWork;
         }
 
-        public IQueryable<UserType> GetAllTypes()
+        public IEnumerable<UserType> GetAllTypes()
         {
-            return _repository.GetAll();
+            return unitOfWork.UserTypes.Get(orderBy:(u => u.OrderBy(o=> o.Type)));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using LiveJourneys.JourneyPlanningSystem.Business;
 using LiveJourneys.JourneyPlanningSystem.Data;
-using LiveJourneys.JourneyPlanningSystem.Data.Repository;
 using LiveJourneys.JourneyPlanningSystem.Models;
+using LiveJourneys.JourneyPlanningSystem.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,14 +17,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
     public partial class frmTrainLine : Form
     {
         private ManageLines manageLines;
-        private JourneyPlanningSystemDbContext _context = null;
         private ICollection<Line> trainLines;
 
-        public frmTrainLine(JourneyPlanningSystemDbContext context)
+        public frmTrainLine()
         {
-            _context = context;
-            IBasicRepository<Line> lineRepository = new BasicEFRepository<Line>(_context);
-            manageLines = new ManageLines(lineRepository);
+            manageLines = new ManageLines(new UnitOfWork());
             InitializeComponent();
         }
 

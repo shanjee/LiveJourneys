@@ -1,7 +1,7 @@
 ﻿using LiveJourneys.JourneyPlanningSystem.Business;
 using LiveJourneys.JourneyPlanningSystem.Data;
-using LiveJourneys.JourneyPlanningSystem.Data.Repository;
 using LiveJourneys.JourneyPlanningSystem.Models;
+using LiveJourneys.JourneyPlanningSystem.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,13 +21,10 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
         private JourneyPlanningSystemDbContext _context = null;
         private ICollection<UserType> userTypes;
 
-        public frmNewuser(JourneyPlanningSystemDbContext context)
+        public frmNewuser()
         {
-            _context = context;
-            IBasicRepository<User> userRepository = new BasicEFRepository<User>(_context);
-            IBasicRepository<UserType> userTypeRepository = new BasicEFRepository<UserType>(_context);
-            manageUsers = new ManageUsers(userRepository);
-            manageUserTypes = new ManageUserTypes(userTypeRepository);
+            manageUsers = new ManageUsers(new UnitOfWork());
+            manageUserTypes = new ManageUserTypes(new UnitOfWork());
             InitializeComponent();
         }
 
@@ -59,8 +56,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
                     TypeId = (int)cmbUserType.SelectedValue
                 };
 
-                var user = await manageUsers.CreateUser(newUser);
-                if(user!= null && user.Id > 0)
+                var result  = manageUsers.CreateUser(newUser);
+                if(result > 0)
                 {
                     MessageBox.Show("New user created success.", "New user create", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();

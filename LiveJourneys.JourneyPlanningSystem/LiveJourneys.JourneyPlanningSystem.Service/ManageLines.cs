@@ -1,5 +1,5 @@
-﻿using LiveJourneys.JourneyPlanningSystem.Data.Repository;
-using LiveJourneys.JourneyPlanningSystem.Models;
+﻿using LiveJourneys.JourneyPlanningSystem.Models;
+using LiveJourneys.JourneyPlanningSystem.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,31 +10,34 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
 {
     public class ManageLines
     {
-        private IBasicRepository<Line> _repository = null;
+        private readonly IUnitOfWork unitOfWork = null;
 
-        public ManageLines(IBasicRepository<Line> repository)
+        public ManageLines(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
+            this.unitOfWork = unitOfWork;
         }
 
-        public IQueryable<Line> GetAllLines()
+        public IEnumerable<Line> GetAllLines()
         {
-            return _repository.GetAll();
+            return unitOfWork.TrainLines.Get();
         }
 
-        public async Task<Line> CreateLine(Line newLine)
+        public int CreateLine(Line newLine)
         {
-            return await _repository.Create(newLine);
+            unitOfWork.TrainLines.Add(newLine);
+            return unitOfWork.Complete();
         }
 
-        public async Task<Line> Update(Line line)
+        public int Update(Line line)
         {
-            return await _repository.Update(line);
+            unitOfWork.TrainLines.Update(line);
+            return unitOfWork.Complete();
         }
 
-        public async Task<Line> Delete(Line line)
+        public int Delete(Line line)
         {
-            return await _repository.Delete(line.Id);
+            unitOfWork.TrainLines.Delete(line);
+            return unitOfWork.Complete();
         }
     }
 }

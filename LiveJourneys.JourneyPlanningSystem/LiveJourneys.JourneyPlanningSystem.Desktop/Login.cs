@@ -1,7 +1,7 @@
 ﻿using LiveJourneys.JourneyPlanningSystem.Business;
 using LiveJourneys.JourneyPlanningSystem.Data;
-using LiveJourneys.JourneyPlanningSystem.Data.Repository;
 using LiveJourneys.JourneyPlanningSystem.Models;
+using LiveJourneys.JourneyPlanningSystem.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,14 +17,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
     public partial class frmLogin : Form
     {
         private ManageUsers manageUsers;
-        JourneyPlanningSystemDbContext _context = null;
 
-        public frmLogin(JourneyPlanningSystemDbContext context)
+        public frmLogin()
         {
-            _context = context;
             InitializeComponent();
-            IBasicRepository<User> repository = new BasicEFRepository<User>(_context);
-            manageUsers = new ManageUsers(repository);
+            manageUsers = new ManageUsers(new UnitOfWork());
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -43,7 +40,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
 
                 if (user != null && user.TypeId == 1)
                 {
-                    new frmMain(_context).Show();
+                    new frmMain().Show();
                     this.Hide();
                 }
                 else if(user != null)

@@ -1,7 +1,7 @@
 ﻿using LiveJourneys.JourneyPlanningSystem.Business;
 using LiveJourneys.JourneyPlanningSystem.Data;
-using LiveJourneys.JourneyPlanningSystem.Data.Repository;
 using LiveJourneys.JourneyPlanningSystem.Models;
+using LiveJourneys.JourneyPlanningSystem.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,24 +16,20 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
 {
     public partial class frmMain : Form
     {
-        private ManageUsers manageUsers;
-        JourneyPlanningSystemDbContext _context = null;
 
-        public frmMain(JourneyPlanningSystemDbContext context)
+        public frmMain()
         {
-            _context = context;
-            IBasicRepository<User> repository = new BasicEFRepository<User>(_context);
             InitializeComponent();
         }
 
         private void tsbNewuser_Click(object sender, EventArgs e)
         {
-            new frmNewuser(_context).ShowDialog();
+            new frmNewuser().ShowDialog();
         }
 
         private void tsbTrainLine_Click(object sender, EventArgs e)
         {
-            new frmTrainLine(_context).ShowDialog();
+            new frmTrainLine().ShowDialog();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin(new JourneyPlanningSystemDbContext()));
+            Application.Run(new frmLogin());
         }
     }
 }

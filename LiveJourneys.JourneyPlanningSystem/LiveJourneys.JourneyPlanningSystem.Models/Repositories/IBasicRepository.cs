@@ -1,46 +1,47 @@
-﻿using LiveJourneys.JourneyPlanningSystem.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace LiveJourneys.JourneyPlanningSystem.Data.Repository
+namespace LiveJourneys.JourneyPlanningSystem.Models.Repositories
 {
-    public interface IBasicRepository<TEntity> where TEntity : class, IEntity
+    public interface IBasicRepository<TEntity> where TEntity : class
     {
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        IQueryable<TEntity> GetAll();
+        IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+            string includeProperties = "");
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<TEntity> GetById(int id);
+        TEntity GetById(int id);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<TEntity> Create(TEntity entity);
+        void Add(TEntity entity);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<TEntity> Update(TEntity entity);
+        void Update(TEntity entity);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<TEntity> Delete(int id);
+        void Delete(TEntity entity);
     }
 }
