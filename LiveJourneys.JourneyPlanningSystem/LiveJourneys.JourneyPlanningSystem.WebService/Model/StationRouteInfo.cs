@@ -21,11 +21,14 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
             this.path = path;
             Distance = 4.4;
             Name = "ajith";
+            StationId = path.First();
         }
 
         [DataMember]
         public double Distance { get; set; }
         [DataMember]
         public string Name { get; set; }
+        [DataMember]
+        public List<StationDetail> Stations { get; set; }
     }
 }
