@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LiveJourneys.JourneyPlanningSystem.Models;
+using LiveJourneys.JourneyPlanningSystem.Service.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,9 +20,13 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService
     {
 
         [WebMethod]
-        public string HelloWorld()
+        public List<Station> FindPath(int fromStationId, int toStationId)
         {
-            return "Hello World";
+            var manager = new RouteManager();
+
+            var path = manager.FindPath(fromStationId,toStationId);
+
+            return path;
         }
     }
 }

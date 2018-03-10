@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\DijkstraAlgorithm.cs" />
+    <Compile Include="Business\RouteManager.cs" />
     <Compile Include="ManageUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

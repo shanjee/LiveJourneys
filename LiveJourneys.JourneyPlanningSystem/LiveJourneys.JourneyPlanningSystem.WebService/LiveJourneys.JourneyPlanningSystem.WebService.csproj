@@ -82,6 +82,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LiveJourneys.JourneyPlanningSystem.Models\LiveJourneys.JourneyPlanningSystem.Models.csproj">
+      <Project>{b7cb0520-1682-4bb8-859b-52567b886f4e}</Project>
+      <Name>LiveJourneys.JourneyPlanningSystem.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LiveJourneys.JourneyPlanningSystem.Service\LiveJourneys.JourneyPlanningSystem.Business.csproj">
+      <Project>{b861b1af-47d5-4a03-8d21-6c913cd49c62}</Project>
+      <Name>LiveJourneys.JourneyPlanningSystem.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
