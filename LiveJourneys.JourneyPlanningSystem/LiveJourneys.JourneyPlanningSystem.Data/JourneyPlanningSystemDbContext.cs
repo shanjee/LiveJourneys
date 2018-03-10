@@ -47,13 +47,13 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
 
             modelBuilder.Entity<Station>()
                 .HasMany(e => e.StationMappings)
-                .WithRequired(e => e.Station)
+                .WithRequired(e => e.FromStation)
                 .HasForeignKey(e => e.FromStaionId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Station>()
                 .HasMany(e => e.StationMappings1)
-                .WithRequired(e => e.Station1)
+                .WithRequired(e => e.ToStation)
                 .HasForeignKey(e => e.ToStationId)
                 .WillCascadeOnDelete(false);
 

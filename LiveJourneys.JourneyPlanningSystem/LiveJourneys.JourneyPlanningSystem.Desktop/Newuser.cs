@@ -42,7 +42,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
         {
             txtUsername.Clear();
             txtPassword.Clear();
-            cmbUserType.SelectedIndex = 1;
+            cmbUserType.SelectedIndex = 0;
+            txtUsername.Focus();
         }
 
         private async void btnCreate_Click(object sender, EventArgs e)
@@ -63,9 +64,13 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
                     Clear();
                 }
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 MessageBox.Show(ex.Message, "New user create", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Oops! Something went wrong.", "New user create", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

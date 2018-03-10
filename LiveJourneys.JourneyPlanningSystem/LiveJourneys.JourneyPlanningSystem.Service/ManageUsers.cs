@@ -74,7 +74,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
             }
 
             password = HashPassword(password);
-            var userFromContext = unitOfWork.Users.Get(u => u.UserName.Equals(username) && u.Password.Equals(password)).FirstOrDefault();
+            var userFromContext = unitOfWork.Users.Get( filter:u => u.UserName.Equals(username) && u.Password.Equals(password)).FirstOrDefault();
             return userFromContext;
         }
 

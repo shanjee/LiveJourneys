@@ -24,11 +24,6 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
             manageUsers = new ManageUsers(new UnitOfWork());
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-            txtUsername.Focus();
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -38,7 +33,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
 
                 var user = manageUsers.VerifyUser(username,password);
 
-                if (user != null && user.TypeId == 1)
+                if (user != null && user.TypeId == (int)UserTypeId.Admin)
                 {
                     new frmMain().Show();
                     this.Hide();
@@ -46,12 +41,12 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
                 else if(user != null)
                 {
                     Clear();
-                    MessageBox.Show("Unauthorized access", "Log In error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Unauthorized access", "Log In", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     Clear();
-                    MessageBox.Show("Invalid username and password.", "Log In error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Invalid username and password.", "Log In", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (ArgumentException ex) 
