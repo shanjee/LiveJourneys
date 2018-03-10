@@ -10,8 +10,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.Controllers
     {
         public ActionResult Index()
         {
-            var client = new JourneyPlanningSystemService.JourneyPlanningSystemClient();
-            var path = client.GetRouteInformation(0, 4);
+            //var client = new JourneyPlanningSystemService.JourneyPlanningSystemClient();
+            //var path = client.GetRouteInformation(0, 4);
             return View();
         }
 
@@ -25,6 +25,13 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult RepresentStations()
+        {
+            ViewBag.Message = "Your train chart goes here";
 
             return View();
         }

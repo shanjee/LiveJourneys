@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "RepresentStations";
+}
+
+<h2>RepresentStations</h2>
+<h3>Hello Bossaaa!!</h3>
+@Html.DropDownList("Mobiledropdown3", new List<SelectListItem>
+{
+    new SelectListItem { Text = "HTC DESIRE", Value = "1", Selected=true},
+    new SelectListItem { Text = "Moto G", Value = "2"},
+    new SelectListItem { Text = "GO mobiles", Value = "3"}
+}, "Select Mobile")
+
