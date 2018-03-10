@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Business\DijkstraAlgorithm.cs" />
     <Compile Include="Business\RouteManager.cs" />
+    <Compile Include="ManageLines.cs" />
     <Compile Include="ManageUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

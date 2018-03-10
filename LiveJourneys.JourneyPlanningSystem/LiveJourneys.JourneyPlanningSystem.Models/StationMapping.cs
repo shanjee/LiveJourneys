@@ -8,8 +8,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
 {
 
     [Table("StationMapping")]
-    public partial class StationMapping
+    public partial class StationMapping:IEntity
     {
+        [NotMapped]
+        public int Id { get; set; }
+
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -27,7 +30,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
 
         public double Distance { get; set; }
 
-        public bool? isDeleay { get; set; }
+        public bool? IsDeleay { get; set; }
 
         public virtual Line Line { get; set; }
 
