@@ -16,6 +16,12 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
         {
             this.Id = station.Id;
             this.Name = station.Name;
+
+            StationLineDetails = new List<StationLineDetail>();
+            foreach (var item in station.StationLines)
+            {
+                StationLineDetails.Add(new StationLineDetail(item));
+            }
             //this.StationLineDetails = station.StationLines;
             //this.StationMappingDetails = station.StationMappingDetails;
         }

@@ -10,18 +10,19 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
     [DataContract]
     public class StationRouteInfo
     {
-        private List<Station> path;
-
         public StationRouteInfo()
         {            
         }
-
+        
         public StationRouteInfo(List<Station> path)
         {
-            this.path = path;
             Distance = 4.4;
             Name = "ajith";
-            //StationId = path.First();
+            Stations = new List<StationDetail>();
+            foreach (var item in path)
+            {
+                Stations.Add(new StationDetail(item));
+            }
         }
 
         [DataMember]
@@ -29,6 +30,6 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public List<StationDetail> Stations { get; set; }
+        public ICollection<StationDetail> Stations { get; set; }
     }
 }

@@ -13,14 +13,23 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select JourneyPlanningSystem.svc or JourneyPlanningSystem.svc.cs at the Solution Explorer and start debugging.
     public class JourneyPlanningSystem : IJourneyPlanningSystem
     {
-        public void DoWork()
+        RouteManager manager = new RouteManager();
+
+        public List<StationDetail> GetAllStations()
         {
+            var stations = manager.GetAllStations();
+
+            var stationDetails = new List<StationDetail>();
+            foreach (var item in stations)
+            {
+                stationDetails.Add(new StationDetail(item));
+            }
+
+            return stationDetails;
         }
 
         public StationRouteInfo GetRouteInformation(int fromStationId, int toStationId)
         {
-            var manager = new RouteManager();
-
             var path = manager.FindPath(fromStationId, toStationId);
 
             var info = new StationRouteInfo(path);

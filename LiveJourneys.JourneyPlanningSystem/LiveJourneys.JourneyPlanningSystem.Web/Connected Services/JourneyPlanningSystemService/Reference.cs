@@ -15,6 +15,304 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StationDetail", Namespace="http://schemas.datacontract.org/2004/07/LiveJourneys.JourneyPlanningSystem.WebSer" +
+        "vice.Model")]
+    [System.SerializableAttribute()]
+    public partial class StationDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationLineDetail[] StationLineDetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationMappingDetail[] StationMappingDetailsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationLineDetail[] StationLineDetails {
+            get {
+                return this.StationLineDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StationLineDetailsField, value) != true)) {
+                    this.StationLineDetailsField = value;
+                    this.RaisePropertyChanged("StationLineDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationMappingDetail[] StationMappingDetails {
+            get {
+                return this.StationMappingDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StationMappingDetailsField, value) != true)) {
+                    this.StationMappingDetailsField = value;
+                    this.RaisePropertyChanged("StationMappingDetails");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StationLineDetail", Namespace="http://schemas.datacontract.org/2004/07/LiveJourneys.JourneyPlanningSystem.WebSer" +
+        "vice.Model")]
+    [System.SerializableAttribute()]
+    public partial class StationLineDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LineIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OrderNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StationIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LineId {
+            get {
+                return this.LineIdField;
+            }
+            set {
+                if ((this.LineIdField.Equals(value) != true)) {
+                    this.LineIdField = value;
+                    this.RaisePropertyChanged("LineId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OrderNumber {
+            get {
+                return this.OrderNumberField;
+            }
+            set {
+                if ((this.OrderNumberField.Equals(value) != true)) {
+                    this.OrderNumberField = value;
+                    this.RaisePropertyChanged("OrderNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int StationId {
+            get {
+                return this.StationIdField;
+            }
+            set {
+                if ((this.StationIdField.Equals(value) != true)) {
+                    this.StationIdField = value;
+                    this.RaisePropertyChanged("StationId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StationMappingDetail", Namespace="http://schemas.datacontract.org/2004/07/LiveJourneys.JourneyPlanningSystem.WebSer" +
+        "vice.Model")]
+    [System.SerializableAttribute()]
+    public partial class StationMappingDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double DistanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FromStaionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsDeleayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LineIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ToStationIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Distance {
+            get {
+                return this.DistanceField;
+            }
+            set {
+                if ((this.DistanceField.Equals(value) != true)) {
+                    this.DistanceField = value;
+                    this.RaisePropertyChanged("Distance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FromStaionId {
+            get {
+                return this.FromStaionIdField;
+            }
+            set {
+                if ((this.FromStaionIdField.Equals(value) != true)) {
+                    this.FromStaionIdField = value;
+                    this.RaisePropertyChanged("FromStaionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsDeleay {
+            get {
+                return this.IsDeleayField;
+            }
+            set {
+                if ((this.IsDeleayField.Equals(value) != true)) {
+                    this.IsDeleayField = value;
+                    this.RaisePropertyChanged("IsDeleay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LineId {
+            get {
+                return this.LineIdField;
+            }
+            set {
+                if ((this.LineIdField.Equals(value) != true)) {
+                    this.LineIdField = value;
+                    this.RaisePropertyChanged("LineId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ToStationId {
+            get {
+                return this.ToStationIdField;
+            }
+            set {
+                if ((this.ToStationIdField.Equals(value) != true)) {
+                    this.ToStationIdField = value;
+                    this.RaisePropertyChanged("ToStationId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StationRouteInfo", Namespace="http://schemas.datacontract.org/2004/07/LiveJourneys.JourneyPlanningSystem.WebSer" +
         "vice.Model")]
     [System.SerializableAttribute()]
@@ -28,6 +326,9 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[] StationsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -65,6 +366,19 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[] Stations {
+            get {
+                return this.StationsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StationsField, value) != true)) {
+                    this.StationsField = value;
+                    this.RaisePropertyChanged("Stations");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -79,11 +393,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="JourneyPlanningSystemService.IJourneyPlanningSystem")]
     public interface IJourneyPlanningSystem {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJourneyPlanningSystem/DoWork", ReplyAction="http://tempuri.org/IJourneyPlanningSystem/DoWorkResponse")]
-        void DoWork();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJourneyPlanningSystem/GetAllStations", ReplyAction="http://tempuri.org/IJourneyPlanningSystem/GetAllStationsResponse")]
+        LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[] GetAllStations();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJourneyPlanningSystem/DoWork", ReplyAction="http://tempuri.org/IJourneyPlanningSystem/DoWorkResponse")]
-        System.Threading.Tasks.Task DoWorkAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJourneyPlanningSystem/GetAllStations", ReplyAction="http://tempuri.org/IJourneyPlanningSystem/GetAllStationsResponse")]
+        System.Threading.Tasks.Task<LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[]> GetAllStationsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJourneyPlanningSystem/GetRouteInformation", ReplyAction="http://tempuri.org/IJourneyPlanningSystem/GetRouteInformationResponse")]
         LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo GetRouteInformation(int fromStationId, int toStationId);
@@ -119,12 +433,12 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
                 base(binding, remoteAddress) {
         }
         
-        public void DoWork() {
-            base.Channel.DoWork();
+        public LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[] GetAllStations() {
+            return base.Channel.GetAllStations();
         }
         
-        public System.Threading.Tasks.Task DoWorkAsync() {
-            return base.Channel.DoWorkAsync();
+        public System.Threading.Tasks.Task<LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[]> GetAllStationsAsync() {
+            return base.Channel.GetAllStationsAsync();
         }
         
         public LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo GetRouteInformation(int fromStationId, int toStationId) {
