@@ -54,6 +54,13 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
             return listOfStations;
         }
 
+        public List<Station> GetAllStations()
+        {
+            var stations = stationContext.GetAll().ToList();
+
+            return stations;
+        }
+
         public double GetDistance(List<Station> stations)
         {
             double distance = 0;

@@ -11,6 +11,9 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.Controllers
         public ActionResult Index()
         {
             var client = new JourneyPlanningSystemService.JourneyPlanningSystemClient();
+
+            var all = client.GetAllStations();
+
             var path = client.GetRouteInformation(1, 3);
             return View();
         }
@@ -25,6 +28,13 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult RepresentStations()
+        {
+            ViewBag.Message = "Your Represent Stations page.";
 
             return View();
         }

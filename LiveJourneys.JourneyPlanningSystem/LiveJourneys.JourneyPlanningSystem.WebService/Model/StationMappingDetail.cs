@@ -1,0 +1,35 @@
+﻿using LiveJourneys.JourneyPlanningSystem.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Web;
+
+namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
+{
+    public class StationMappingDetail
+    {
+        public StationMappingDetail()
+        { }
+
+        public StationMappingDetail(StationMapping mappig)
+        {
+            this.FromStaionId = mappig.FromStaionId;
+            this.ToStationId = mappig.ToStationId;
+            this.LineId = mappig.LineId;
+            this.Distance = mappig.Distance;
+            this.IsDeleay = mappig.IsDeleay;
+        }
+
+        [DataMember]
+        public int FromStaionId { get; set; }
+        [DataMember]
+        public int ToStationId { get; set; }
+        [DataMember]
+        public int LineId { get; set; }
+        [DataMember]
+        public double Distance { get; set; }
+        [DataMember]
+        public bool? IsDeleay { get; set; }
+    }
+}

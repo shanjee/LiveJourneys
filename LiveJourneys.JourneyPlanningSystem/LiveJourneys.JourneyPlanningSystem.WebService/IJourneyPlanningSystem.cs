@@ -13,7 +13,7 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService
     public interface IJourneyPlanningSystem
     {
         [OperationContract]
-        void DoWork();
+        List<StationDetail> GetAllStations();
 
         [OperationContract]
         StationRouteInfo GetRouteInformation(int fromStationId, int toStationId);
