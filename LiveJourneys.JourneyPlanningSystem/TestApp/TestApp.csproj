@@ -65,6 +65,10 @@
       <Project>{B7CB0520-1682-4BB8-859B-52567B886F4E}</Project>
       <Name>LiveJourneys.JourneyPlanningSystem.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LiveJourneys.JourneyPlanningSystem.Service\LiveJourneys.JourneyPlanningSystem.Business.csproj">
+      <Project>{B861B1AF-47D5-4A03-8D21-6C913CD49C62}</Project>
+      <Name>LiveJourneys.JourneyPlanningSystem.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
