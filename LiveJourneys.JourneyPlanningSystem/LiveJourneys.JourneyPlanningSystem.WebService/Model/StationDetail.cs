@@ -16,8 +16,8 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
         {
             this.Id = station.Id;
             this.Name = station.Name;
-            this.StationLineDetails = station.StationLines;
-            this.StationMappingDetails = station.StationMappingDetails;
+            //this.StationLineDetails = station.StationLines;
+            //this.StationMappingDetails = station.StationMappingDetails;
         }
 
         [DataMember]

@@ -21,7 +21,7 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
             this.path = path;
             Distance = 4.4;
             Name = "ajith";
-            StationId = path.First();
+            //StationId = path.First();
         }
 
         [DataMember]
