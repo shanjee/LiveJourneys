@@ -50,6 +50,25 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
 
             return listOfStations;
         }
+
+        public double GetDistance(List<Station> stations)
+        {
+            double distance = 0;
+
+            for (int i = 0; i < stations.Count; i++)
+            {
+                if (i < stations.Count - 1)
+                {
+                    var currentStation = stations[i];
+                    var nextStation = stations[i+1];
+
+                    distance = distance + currentStation.StationMappings.Where(x => (x.FromStaionId == currentStation.Id && x.ToStationId == nextStation.Id)).First().Distance;
+                }
+
+            }
+
+            return distance;
+        }
         #endregion
 
 
