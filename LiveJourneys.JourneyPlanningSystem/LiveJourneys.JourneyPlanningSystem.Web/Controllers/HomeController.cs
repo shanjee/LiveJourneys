@@ -28,5 +28,12 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.Controllers
 
             return View();
         }
+
+        public ActionResult RepresentStations()
+        {
+            ViewBag.Message = "Your Represent Stations page.";
+
+            return View();
+        }
     }
 }
