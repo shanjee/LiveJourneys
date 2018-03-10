@@ -31,13 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNewuser = new System.Windows.Forms.ToolStripButton();
+            this.tsbTrainLine = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNewuser});
+            this.tsbNewuser,
+            this.tsbTrainLine});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(753, 25);
@@ -52,6 +54,15 @@
             this.tsbNewuser.Size = new System.Drawing.Size(102, 22);
             this.tsbNewuser.Text = "Add New User";
             this.tsbNewuser.Click += new System.EventHandler(this.tsbNewuser_Click);
+            // 
+            // tsbTrainLine
+            // 
+            this.tsbTrainLine.Image = ((System.Drawing.Image)(resources.GetObject("tsbTrainLine.Image")));
+            this.tsbTrainLine.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbTrainLine.Name = "tsbTrainLine";
+            this.tsbTrainLine.Size = new System.Drawing.Size(78, 22);
+            this.tsbTrainLine.Text = "Train Line";
+            this.tsbTrainLine.Click += new System.EventHandler(this.tsbTrainLine_Click);
             // 
             // frmMain
             // 
@@ -73,5 +84,6 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbNewuser;
+        private System.Windows.Forms.ToolStripButton tsbTrainLine;
     }
 }
