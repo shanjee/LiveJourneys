@@ -30,7 +30,24 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
         {
             if(newUser == null)
             {
-                throw new ArgumentNullException(nameof(newUser), "User should not be null");
+                throw new ArgumentException("User should not be null");
+            }
+
+            if (string.IsNullOrWhiteSpace(newUser.UserName))
+            {
+                throw new ArgumentException("Username should not be null,empty or white-space");
+            }
+
+            if (string.IsNullOrWhiteSpace(newUser.Password))
+            {
+                throw new ArgumentException("Password should not be null,empty or white-space");
+            }
+
+            var result = _repository.GetAll().Where(u => u.UserName.Equals(newUser.UserName));
+
+            if(result.Count() > 0)
+            {
+                throw new InvalidOperationException("Username already exists.");
             }
 
             newUser.Password = HashPassword(newUser.Password);
@@ -47,15 +64,16 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
         {
             if(string.IsNullOrWhiteSpace(username))
             {
-                throw new ArgumentNullException(nameof(username), "Username should not be null,empty or white-space");
+                throw new ArgumentException("Username should not be null,empty or white-space");
             }
 
             if (string.IsNullOrWhiteSpace(password))
             {
-                throw new ArgumentNullException(nameof(password), "Password should not be null,empty or white-space");
+                throw new ArgumentException("Password should not be null,empty or white-space");
             }
 
-            var userFromContext = _repository.GetAll().FirstOrDefault(u => u.UserName.Equals(username) && u.Password.Equals(HashPassword(password)));
+            password = HashPassword(password);
+            var userFromContext = _repository.GetAll().FirstOrDefault(u => u.UserName.Equals(username) && u.Password.Equals(password));
             return userFromContext;
         }
 
@@ -68,7 +86,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
         {
             if (string.IsNullOrWhiteSpace(password))
             {
-                throw new ArgumentNullException(nameof(password), "Password should not be null,empty or white-space");
+                throw new ArgumentException("Password should not be null,empty or white-space");
             }
 
             return Convert.ToBase64String(Encoding.ASCII.GetBytes(password));

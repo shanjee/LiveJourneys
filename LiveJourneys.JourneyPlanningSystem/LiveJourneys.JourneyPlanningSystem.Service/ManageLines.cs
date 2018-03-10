@@ -26,5 +26,15 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
         {
             return await _repository.Create(newLine);
         }
+
+        public async Task<Line> Update(Line line)
+        {
+            return await _repository.Update(line);
+        }
+
+        public async Task<Line> Delete(Line line)
+        {
+            return await _repository.Delete(line.Id);
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
         [Column("LineId")]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Name should not be null or empty", AllowEmptyStrings = false)]
         [StringLength(50)]
         public string Name { get; set; }
 

@@ -21,8 +21,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
         [Column("StationId")]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage = "Name should not be null or empty", AllowEmptyStrings = false)]
+        [StringLength(50, ErrorMessage = "Station name should be blow 50 characters")]
         public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

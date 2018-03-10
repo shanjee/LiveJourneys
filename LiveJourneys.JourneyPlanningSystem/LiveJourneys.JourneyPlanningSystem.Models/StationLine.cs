@@ -16,11 +16,13 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required(ErrorMessage = "Line should be selected", AllowEmptyStrings = false)]
         public int LineId { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required(ErrorMessage = "Station should be selected", AllowEmptyStrings = false)]
         public int StationId { get; set; }
 
         public int OrderNumber { get; set; }
