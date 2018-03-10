@@ -8,8 +8,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
 {
 
     [Table("StationLine")]
-    public partial class StationLine
+    public partial class StationLine:IEntity
     {
+        [NotMapped]
+        public int Id { get; set; }
+
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
