@@ -10,6 +10,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.Controllers
     {
         public ActionResult Index()
         {
+            var client = new JourneyPlanningSystemService.JourneyPlanningSystemClient();
+            var path = client.GetRouteInformation(0, 4);
             return View();
         }
 

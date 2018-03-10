@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LiveJourneys.JourneyPlanningSystem.Service
+namespace LiveJourneys.JourneyPlanningSystem.Business
 {
     public class ManageUsers
     {
