@@ -7,8 +7,8 @@
     <ProjectGuid>{B861B1AF-47D5-4A03-8D21-6C913CD49C62}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LiveJourneys.JourneyPlanningSystem.Service</RootNamespace>
-    <AssemblyName>LiveJourneys.JourneyPlanningSystem.Service</AssemblyName>
+    <RootNamespace>LiveJourneys.JourneyPlanningSystem.Business</RootNamespace>
+    <AssemblyName>LiveJourneys.JourneyPlanningSystem.Business</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\DijkstraAlgorithm.cs" />
-    <Compile Include="Business\RouteManager.cs" />
+    <Compile Include="DijkstraAlgorithm.cs" />
+    <Compile Include="RouteManager.cs" />
     <Compile Include="ManageLines.cs" />
     <Compile Include="ManageUsers.cs" />
     <Compile Include="ManageUserTypes.cs" />
