@@ -11,9 +11,6 @@ namespace TestApp
 {
     class Program
     {
-        static JourneyPlanningSystemDbContext context = new JourneyPlanningSystemDbContext();
-        static BasicEFRepository<StationMapping> basicEFRepository = new BasicEFRepository<StationMapping>(context);
-
         static void Main(string[] args)
         {
             RouteManager routemanager = new RouteManager();
@@ -25,7 +22,7 @@ namespace TestApp
 
         private static  void GetGraphArray()
         {
-            var dataList = basicEFRepository.GetAll().ToList();  
+            var dataList = new UnitOfWork().StationMappings.Get().ToList();  
 
             var distinctCategories = dataList.Select(m => new { m.FromStaionId, m.ToStationId }).Distinct().Count();
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveJourneys.JourneyPlanningSystem.Models", "LiveJourneys.JourneyPlanningSystem.Models\LiveJourneys.JourneyPlanningSystem.Models.csproj", "{B7CB0520-1682-4BB8-859B-52567B886F4E}"
 EndProject
