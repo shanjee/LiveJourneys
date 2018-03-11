@@ -19,6 +19,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
         //BasicRepository<Station> stationContext = new BasicRepository<Station>(context);
 
         IUnitOfWork unitOfWork = new UnitOfWork();
+        private List<int> varpathStationIds;
 
 
         #region Public function
@@ -41,11 +42,19 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
             var dataList = unitOfWork.StationMappings.Get().ToList();
             var distinctStationIds = GetDistinctStaionIds(dataList);
             var graph = GetGraphData(dataList,distinctStationIds);
-            var tempStationIds = _algorithm.FindPath(graph, distinctStationIds.ToList().IndexOf(sourceNode), distinctStationIds.ToList().IndexOf(destinationNode));
+
+            var fromStationId = distinctStationIds.ToList().IndexOf(sourceNode);
+            var toStationId = distinctStationIds.ToList().IndexOf(destinationNode);
 
             List<Station> listOfStations = new List<Station>();
 
-            foreach (int item in tempStationIds)
+            if (fromStationId < 0 || toStationId < 0)
+                return listOfStations;
+
+            var pathStationIds = _algorithm.FindPath(graph, fromStationId, toStationId);
+                     
+
+            foreach (int item in pathStationIds)
             {
                 listOfStations.Add(unitOfWork.Stations.GetById(distinctStationIds[item]));
             }

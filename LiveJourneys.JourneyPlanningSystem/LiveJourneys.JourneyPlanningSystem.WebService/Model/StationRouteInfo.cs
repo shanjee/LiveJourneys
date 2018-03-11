@@ -16,8 +16,6 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
         
         public StationRouteInfo(List<Station> path)
         {
-            Distance = 4.4;
-            Name = "ajith";
             Stations = new List<StationDetail>();
             foreach (var item in path)
             {
@@ -27,8 +25,6 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
 
         [DataMember]
         public double Distance { get; set; }
-        [DataMember]
-        public string Name { get; set; }
         [DataMember]
         public ICollection<StationDetail> Stations { get; set; }
     }

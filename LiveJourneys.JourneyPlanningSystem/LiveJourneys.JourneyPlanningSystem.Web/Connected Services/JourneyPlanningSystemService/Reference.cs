@@ -325,9 +325,6 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
         private double DistanceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[] StationsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -349,19 +346,6 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
                 if ((this.DistanceField.Equals(value) != true)) {
                     this.DistanceField = value;
                     this.RaisePropertyChanged("Distance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
                 }
             }
         }

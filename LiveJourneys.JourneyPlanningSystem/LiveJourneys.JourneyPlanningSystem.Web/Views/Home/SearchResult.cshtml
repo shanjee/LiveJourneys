@@ -1,0 +1,51 @@
+﻿@model LiveJourneys.JourneyPlanningSystem.Web.Models.SearchResultModel
+
+
+    <div>
+        <h4>StationRouteInfo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("From Station")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SelectedFromStationsId)
+            </dd>
+            <dt>
+                @Html.DisplayName("To Station")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SelectedToStationsId)
+            </dd>
+
+            @if(Model.RouteInfo.Stations.Count() == 0)
+            {
+                <dt><b>No route found</b></dt>
+            }
+            else
+            { 
+            <dt>
+                @Html.DisplayNameFor(model => model.RouteInfo.Distance)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RouteInfo.Distance)
+            </dd>
+
+            <dt><b>Route path</b></dt>
+
+
+                foreach (var item in Model.RouteInfo.Stations)
+                {
+                    <dd>@item.Name</dd>
+                }
+
+            }
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to Search", "Index")
+    </p>
