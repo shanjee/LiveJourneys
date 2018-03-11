@@ -325,9 +325,6 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
         private double DistanceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[] StationsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -349,19 +346,6 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
                 if ((this.DistanceField.Equals(value) != true)) {
                     this.DistanceField = value;
                     this.RaisePropertyChanged("Distance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -400,10 +384,10 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
         System.Threading.Tasks.Task<LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[]> GetAllStationsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJourneyPlanningSystem/GetRouteInformation", ReplyAction="http://tempuri.org/IJourneyPlanningSystem/GetRouteInformationResponse")]
-        LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo GetRouteInformation(int fromStationId, int toStationId);
+        LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo GetRouteInformation(int fromStationId, int toStationId, bool isTimeBased);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJourneyPlanningSystem/GetRouteInformation", ReplyAction="http://tempuri.org/IJourneyPlanningSystem/GetRouteInformationResponse")]
-        System.Threading.Tasks.Task<LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo> GetRouteInformationAsync(int fromStationId, int toStationId);
+        System.Threading.Tasks.Task<LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo> GetRouteInformationAsync(int fromStationId, int toStationId, bool isTimeBased);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -441,12 +425,12 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
             return base.Channel.GetAllStationsAsync();
         }
         
-        public LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo GetRouteInformation(int fromStationId, int toStationId) {
-            return base.Channel.GetRouteInformation(fromStationId, toStationId);
+        public LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo GetRouteInformation(int fromStationId, int toStationId, bool isTimeBased) {
+            return base.Channel.GetRouteInformation(fromStationId, toStationId, isTimeBased);
         }
         
-        public System.Threading.Tasks.Task<LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo> GetRouteInformationAsync(int fromStationId, int toStationId) {
-            return base.Channel.GetRouteInformationAsync(fromStationId, toStationId);
+        public System.Threading.Tasks.Task<LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationRouteInfo> GetRouteInformationAsync(int fromStationId, int toStationId, bool isTimeBased) {
+            return base.Channel.GetRouteInformationAsync(fromStationId, toStationId, isTimeBased);
         }
     }
 }

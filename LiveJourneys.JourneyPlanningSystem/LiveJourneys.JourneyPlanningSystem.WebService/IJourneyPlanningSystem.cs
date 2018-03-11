@@ -16,7 +16,7 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService
         List<StationDetail> GetAllStations();
 
         [OperationContract]
-        StationRouteInfo GetRouteInformation(int fromStationId, int toStationId);
+        StationRouteInfo GetRouteInformation(int fromStationId, int toStationId, bool isTimeBased = true);
     
     }
 }

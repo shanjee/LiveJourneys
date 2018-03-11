@@ -63,7 +63,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
 
             if (distance[destinationNode] == double.MaxValue)
             {
-                return null;
+                return new List<int>();
             }
 
             var path = new LinkedList<int>();

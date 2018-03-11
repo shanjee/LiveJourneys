@@ -20,6 +20,7 @@
           <xs:sequence>
             <xs:element minOccurs="0" name="fromStationId" type="xs:int" />
             <xs:element minOccurs="0" name="toStationId" type="xs:int" />
+            <xs:element minOccurs="0" name="isTimeBased" type="xs:boolean" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -122,7 +123,6 @@
       <xs:complexType name="StationRouteInfo">
         <xs:sequence>
           <xs:element minOccurs="0" name="Distance" type="xs:double" />
-          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Stations" nillable="true" type="tns:ArrayOfStationDetail" />
         </xs:sequence>
       </xs:complexType>

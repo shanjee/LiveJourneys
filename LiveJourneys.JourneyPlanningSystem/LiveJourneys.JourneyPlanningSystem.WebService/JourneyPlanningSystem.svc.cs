@@ -28,9 +28,9 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService
             return stationDetails;
         }
 
-        public StationRouteInfo GetRouteInformation(int fromStationId, int toStationId)
+        public StationRouteInfo GetRouteInformation(int fromStationId, int toStationId, bool isTimeBased = true)
         {
-            var path = manager.FindPath(fromStationId, toStationId);
+            var path = manager.FindPath(fromStationId, toStationId, isTimeBased);
 
             var info = new StationRouteInfo(path);
             info.Distance = manager.GetDistance(path);
