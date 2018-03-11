@@ -92,6 +92,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
         /// <returns></returns>
         public void Update(TEntity entity)
         {
+            dbContext.Set<TEntity>().Attach(entity);
             dbContext.Entry<TEntity>(entity).State = EntityState.Modified;
         }
     }
