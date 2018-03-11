@@ -14,6 +14,10 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.Models
         [Display(Name = "To Station")]
         public string SelectedToStationsId { get; set; }
 
+
+        public string SelectedFromStationsName { get; set; }
+        public string SelectedToStationsName { get; set; }
+
         public StationRouteInfo RouteInfo { get; set; }
     }
 }

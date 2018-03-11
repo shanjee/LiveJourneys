@@ -10,14 +10,14 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.SelectedFromStationsId)
+                @Html.DisplayFor(model => model.SelectedFromStationsName)
             </dd>
             <dt>
                 @Html.DisplayName("To Station")
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.SelectedToStationsId)
+                @Html.DisplayFor(model => model.SelectedToStationsName)
             </dd>
 
             @if(Model.RouteInfo.Stations.Count() == 0)

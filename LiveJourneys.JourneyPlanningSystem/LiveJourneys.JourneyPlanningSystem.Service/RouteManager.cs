@@ -27,7 +27,15 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
         {
             _algorithm = new DijkstraAlgorithm();
         }
-        public List<Station> FindPath(int sourceNode, int destinationNode)
+
+        /// <summary>
+        /// Find the best path using Dijkstra Algorithm
+        /// </summary>
+        /// <param name="sourceNode">From station id</param>
+        /// <param name="destinationNode">To station id</param>
+        /// <param name="isTimeBased">True, if you want to find best path based on time. False for distance.</param>
+        /// <returns></returns>
+        public List<Station> FindPath(int sourceNode, int destinationNode, bool isTimeBased = true)
         {
             //var graph = new double[,]
             //{
@@ -41,7 +49,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
             //};
             var dataList = unitOfWork.StationMappings.Get().ToList();
             var distinctStationIds = GetDistinctStaionIds(dataList);
-            var graph = GetGraphData(dataList,distinctStationIds);
+            var graph = GetGraphData(dataList,distinctStationIds, isTimeBased);
 
             var fromStationId = distinctStationIds.ToList().IndexOf(sourceNode);
             var toStationId = distinctStationIds.ToList().IndexOf(destinationNode);
@@ -63,6 +71,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
             return listOfStations;
         }
 
+
+        /// <summary>
+        /// Get all station info from database
+        /// </summary>
+        /// <returns></returns>
         public List<Station> GetAllStations()
         {
             var stations = unitOfWork.Stations.Get().ToList();
@@ -70,6 +83,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
             return stations;
         }
 
+        /// <summary>
+        /// Get distance between first and last staion on the list
+        /// </summary>
+        /// <param name="stations">The station list</param>
+        /// <returns>Distance</returns>
         public double GetDistance(List<Station> stations)
         {
             double distance = 0;
@@ -93,6 +111,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
 
         #region Private Regions
 
+        /// <summary>
+        /// Get distinct station ids that has mapping
+        /// </summary>
+        /// <param name="dataList">THe mapping list</param>
+        /// <returns>Distinct station ids</returns>
         private int [] GetDistinctStaionIds(List<StationMapping> dataList)
         {
            
@@ -106,7 +129,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
             return distinctStationIds.ToArray();
         }
 
-        private new double[,] GetGraphData(List<StationMapping> dataList,int [] distinctStationIds)
+        private double[,] GetGraphData(List<StationMapping> dataList,int [] distinctStationIds, bool isTimeBased = true)
         {
             
             var arraySize = distinctStationIds.Count();
@@ -118,7 +141,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
 
             foreach (var station in dataList)
             {
-                graphArray[distinctStationIds.ToList().IndexOf(station.FromStaionId), distinctStationIds.ToList().IndexOf(station.ToStationId)] = station.Distance;
+                var edgeValue = isTimeBased ? 10 : station.Distance;
+                graphArray[distinctStationIds.ToList().IndexOf(station.FromStaionId), distinctStationIds.ToList().IndexOf(station.ToStationId)] = edgeValue;
             }
 
             return graphArray;
