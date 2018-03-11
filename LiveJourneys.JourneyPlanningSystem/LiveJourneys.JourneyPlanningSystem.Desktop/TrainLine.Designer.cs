@@ -31,6 +31,7 @@
             this.dgvTrainLines = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.frmClear = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
@@ -38,16 +39,18 @@
             this.txtLineId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLine = new System.Windows.Forms.TextBox();
-            this.frmClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainLines)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvTrainLines
             // 
+            this.dgvTrainLines.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTrainLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrainLines.Location = new System.Drawing.Point(12, 171);
             this.dgvTrainLines.Name = "dgvTrainLines";
+            this.dgvTrainLines.ReadOnly = true;
+            this.dgvTrainLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrainLines.Size = new System.Drawing.Size(347, 176);
             this.dgvTrainLines.TabIndex = 1;
             // 
@@ -78,6 +81,16 @@
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // frmClear
+            // 
+            this.frmClear.Location = new System.Drawing.Point(128, 119);
+            this.frmClear.Name = "frmClear";
+            this.frmClear.Size = new System.Drawing.Size(75, 23);
+            this.frmClear.TabIndex = 6;
+            this.frmClear.Text = "Clear";
+            this.frmClear.UseVisualStyleBackColor = true;
+            this.frmClear.Click += new System.EventHandler(this.frmClear_Click);
             // 
             // btnEdit
             // 
@@ -142,16 +155,6 @@
             this.txtLine.Name = "txtLine";
             this.txtLine.Size = new System.Drawing.Size(197, 20);
             this.txtLine.TabIndex = 3;
-            // 
-            // frmClear
-            // 
-            this.frmClear.Location = new System.Drawing.Point(128, 119);
-            this.frmClear.Name = "frmClear";
-            this.frmClear.Size = new System.Drawing.Size(75, 23);
-            this.frmClear.TabIndex = 6;
-            this.frmClear.Text = "Clear";
-            this.frmClear.UseVisualStyleBackColor = true;
-            this.frmClear.Click += new System.EventHandler(this.frmClear_Click);
             // 
             // frmTrainLine
             // 

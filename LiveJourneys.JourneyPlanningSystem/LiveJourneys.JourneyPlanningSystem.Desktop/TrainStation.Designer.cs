@@ -45,9 +45,12 @@
             // 
             // dgvTrainStations
             // 
+            this.dgvTrainStations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTrainStations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrainStations.Location = new System.Drawing.Point(12, 171);
             this.dgvTrainStations.Name = "dgvTrainStations";
+            this.dgvTrainStations.ReadOnly = true;
+            this.dgvTrainStations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrainStations.Size = new System.Drawing.Size(347, 176);
             this.dgvTrainStations.TabIndex = 1;
             // 
