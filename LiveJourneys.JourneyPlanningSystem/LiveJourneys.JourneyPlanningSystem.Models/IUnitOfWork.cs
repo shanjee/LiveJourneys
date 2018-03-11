@@ -13,6 +13,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
         IBasicRepository<UserType> UserTypes { get; }
         IBasicRepository<Line> TrainLines { get; }
         IBasicRepository<Station> Stations { get; }
+        IBasicRepository<StationLine> StationLines { get; }
         IBasicRepository<StationMapping> StationMappings { get; }
 
         int Complete();

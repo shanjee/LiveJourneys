@@ -17,6 +17,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
         public IBasicRepository<Line> TrainLines { get; private set; }
         public IBasicRepository<Station> Stations { get; private set; }
         public IBasicRepository<StationMapping> StationMappings { get; private set; }
+        public IBasicRepository<StationLine> StationLines { get; private set; }
 
         public UnitOfWork()
         {
@@ -24,6 +25,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
             UserTypes = new BasicRepository<UserType>(context);
             TrainLines = new BasicRepository<Line>(context);
             Stations = new BasicRepository<Station>(context);
+            StationLines = new BasicRepository<StationLine>(context);
             StationMappings = new BasicRepository<StationMapping>(context);
         }
 
