@@ -47,7 +47,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
 
             if (station.Id <= 0)
             {
-                throw new InvalidOperationException("Invalid station. Find correct train line.");
+                throw new InvalidOperationException("Invalid station. Station Id value is missing");
             }
 
             if (AnyStationExist(station.Name))
@@ -64,6 +64,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
             if (station == null)
             {
                 throw new ArgumentNullException(nameof(station), "Station should not be null");
+            }
+
+            if (station.Id <= 0)
+            {
+                throw new InvalidOperationException("Invalid station. Station Id value is missing");
             }
 
             unitOfWork.Stations.Delete(station);
