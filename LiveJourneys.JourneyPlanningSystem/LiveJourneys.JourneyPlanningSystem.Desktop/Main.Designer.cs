@@ -32,6 +32,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNewuser = new System.Windows.Forms.ToolStripButton();
             this.tsbTrainLine = new System.Windows.Forms.ToolStripButton();
+            this.tsbTrainStation = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +40,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNewuser,
-            this.tsbTrainLine});
+            this.tsbTrainLine,
+            this.tsbTrainStation});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(753, 25);
@@ -64,6 +66,15 @@
             this.tsbTrainLine.Text = "Train Line";
             this.tsbTrainLine.Click += new System.EventHandler(this.tsbTrainLine_Click);
             // 
+            // tsbTrainStation
+            // 
+            this.tsbTrainStation.Image = ((System.Drawing.Image)(resources.GetObject("tsbTrainStation.Image")));
+            this.tsbTrainStation.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbTrainStation.Name = "tsbTrainStation";
+            this.tsbTrainStation.Size = new System.Drawing.Size(89, 22);
+            this.tsbTrainStation.Text = "Train Staion";
+            this.tsbTrainStation.Click += new System.EventHandler(this.tsbTrainStation_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -85,5 +96,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbNewuser;
         private System.Windows.Forms.ToolStripButton tsbTrainLine;
+        private System.Windows.Forms.ToolStripButton tsbTrainStation;
     }
 }

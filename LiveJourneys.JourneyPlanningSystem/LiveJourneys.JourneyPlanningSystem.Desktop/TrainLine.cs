@@ -179,16 +179,23 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
                     }
 
                     string lineName = currentTrainLine.Name;
+                    DialogResult dialogResult = MessageBox.Show($"Are you want to delete Train line \"{lineName}\" ?", "Delete train line", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
+
                     var result = manageLines.Delete(currentTrainLine);
 
                     if (result > 0)
                     {
-                        MessageBox.Show($"Train line \"{lineName}\" Deleted success.", "Delete train line", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Train line \"{lineName}\" deleted success.", "Delete train line", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         DataGridBinding();
                         return;
                     }
 
-                    MessageBox.Show($"Could not Deleted train line \"{lineName}\".", "Delete train line", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Could not deleted train line \"{lineName}\".", "Delete train line", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (ArgumentException ex)

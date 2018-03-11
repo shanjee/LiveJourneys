@@ -31,5 +31,10 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
         {
             new frmTrainLine().ShowDialog();
         }
+
+        private void tsbTrainStation_Click(object sender, EventArgs e)
+        {
+            new frmTrainStation().ShowDialog();
+        }
     }
 }

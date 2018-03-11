@@ -99,7 +99,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Service.Business
                     var currentStation = stations[i];
                     var nextStation = stations[i+1];
 
-                    distance = distance + currentStation.StationMappings.Where(x => (x.FromStaionId == currentStation.Id && x.ToStationId == nextStation.Id)).First().Distance;
+                    distance = distance + currentStation.FromStationMappings.Where(x => (x.FromStaionId == currentStation.Id && x.ToStationId == nextStation.Id)).First().Distance;
                 }
 
             }

@@ -13,8 +13,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
         public Station()
         {
             StationLines = new HashSet<StationLine>();
-            StationMappings = new HashSet<StationMapping>();
-            StationMappings1 = new HashSet<StationMapping>();
+            FromStationMappings = new HashSet<StationMapping>();
+            ToStationMappings = new HashSet<StationMapping>();
         }
 
         [Column("StationId")]
@@ -28,9 +28,9 @@ namespace LiveJourneys.JourneyPlanningSystem.Models
         public virtual ICollection<StationLine> StationLines { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StationMapping> StationMappings { get; set; }
+        public virtual ICollection<StationMapping> FromStationMappings { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StationMapping> StationMappings1 { get; set; }
+        public virtual ICollection<StationMapping> ToStationMappings { get; set; }
     }
 }
