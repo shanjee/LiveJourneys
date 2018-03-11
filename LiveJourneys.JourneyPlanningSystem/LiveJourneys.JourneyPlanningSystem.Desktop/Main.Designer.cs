@@ -33,6 +33,7 @@
             this.tsbNewuser = new System.Windows.Forms.ToolStripButton();
             this.tsbTrainLine = new System.Windows.Forms.ToolStripButton();
             this.tsbTrainStation = new System.Windows.Forms.ToolStripButton();
+            this.tsbStationLineMapping = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +42,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNewuser,
             this.tsbTrainLine,
-            this.tsbTrainStation});
+            this.tsbTrainStation,
+            this.tsbStationLineMapping});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(753, 25);
@@ -75,6 +77,15 @@
             this.tsbTrainStation.Text = "Train Staion";
             this.tsbTrainStation.Click += new System.EventHandler(this.tsbTrainStation_Click);
             // 
+            // tsbStationLineMapping
+            // 
+            this.tsbStationLineMapping.Image = ((System.Drawing.Image)(resources.GetObject("tsbStationLineMapping.Image")));
+            this.tsbStationLineMapping.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbStationLineMapping.Name = "tsbStationLineMapping";
+            this.tsbStationLineMapping.Size = new System.Drawing.Size(140, 22);
+            this.tsbStationLineMapping.Text = "Station Line Mapping";
+            this.tsbStationLineMapping.Click += new System.EventHandler(this.tsbStationLineMapping_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,5 +108,6 @@
         private System.Windows.Forms.ToolStripButton tsbNewuser;
         private System.Windows.Forms.ToolStripButton tsbTrainLine;
         private System.Windows.Forms.ToolStripButton tsbTrainStation;
+        private System.Windows.Forms.ToolStripButton tsbStationLineMapping;
     }
 }

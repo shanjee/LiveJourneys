@@ -70,7 +70,7 @@
             this.groupBox1.Size = new System.Drawing.Size(346, 152);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Manage Train Lines";
+            this.groupBox1.Text = "Train Line Details";
             // 
             // btnDelete
             // 

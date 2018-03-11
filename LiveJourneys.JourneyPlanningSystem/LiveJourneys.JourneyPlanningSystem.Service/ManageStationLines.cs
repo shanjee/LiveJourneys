@@ -37,6 +37,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
             return unitOfWork.Complete();
         }
 
+        public IEnumerable<object> GetAllStationLinesNameOnly()
+        {
+            return unitOfWork.StationLines.Get(includeProperties: "Line,Station").Select(sL => new { LineName = sL.Line.Name, StationName = sL.Station.Name});
+        }
+
         public int Update(StationLine stationLine)
         {
             if (stationLine == null)
@@ -100,6 +105,16 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
             }
 
             return isAnyStation;
+        }
+
+        public ICollection<Station> GetAllStations()
+        {
+            return unitOfWork.Stations.Get().ToList(); ;
+        }
+
+        public ICollection<Line> GetAllTrainLines()
+        {
+            return unitOfWork.TrainLines.Get().ToList();
         }
     }
 }

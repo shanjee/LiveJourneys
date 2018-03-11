@@ -36,5 +36,10 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
         {
             new frmTrainStation().ShowDialog();
         }
+
+        private void tsbStationLineMapping_Click(object sender, EventArgs e)
+        {
+            new frmStationLineMapping().ShowDialog();
+        }
     }
 }
