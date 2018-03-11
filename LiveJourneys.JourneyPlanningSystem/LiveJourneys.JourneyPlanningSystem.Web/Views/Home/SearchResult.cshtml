@@ -1,35 +1,35 @@
 ﻿@model LiveJourneys.JourneyPlanningSystem.Web.Models.SearchResultModel
 
 
-<div>
-    <h4>Station Route Info</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayName("From Station")
-        </dt>
+    <div>
+        <h4>StationRouteInfo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("From Station")
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SelectedFromStationsName)
-        </dd>
-        <dt>
-            @Html.DisplayName("To Station")
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SelectedFromStationsName)
+            </dd>
+            <dt>
+                @Html.DisplayName("To Station")
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SelectedToStationsName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.SelectedToStationsName)
+            </dd>
 
-        @if (Model.RouteInfo.Stations.Count() == 0)
-        {
-            <dt><b>No route found</b></dt>
-        }
-        else
-        {
+            @if(Model.RouteInfo.Stations.Count() == 0)
+            {
+                <dt><b>No route found</b></dt>
+            }
+            else
+            { 
             <dt>
                 @Html.DisplayNameFor(model => model.RouteInfo.Distance)
             </dt>
-
+    
             <dd>
                 @Html.DisplayFor(model => model.RouteInfo.Distance)
             </dd>
@@ -37,78 +37,15 @@
             <dt><b>Route path</b></dt>
 
 
-            foreach (var item in Model.RouteInfo.Stations)
-            {
-                <dd>@item.Name</dd>
+                foreach (var item in Model.RouteInfo.Stations)
+                {
+                    <dd>@item.Name</dd>
+                }
+
             }
-
-        }
-
-    </dl>
-</div>
-
-<p>
-    @Html.ActionLink("Back to Search", "Index")
-</p>
-
-<style>
-    <!-- .verticalLine { -->
-        <!-- border-left: thick solid #ff0000; -->
-        <!--
-    }
-    -->
-    .hrVerticile {
-        transform: rotate(90deg);
-        border-style: solid;
-        width: 30px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 10px;
-        background-color: green;
-        color: #f3f6db;
-        border: 0 none;
-    }
-</style>
-
-
-@*map region start*@
-
-@if (@Model.RouteInfo.Distance > 0)
-{
-    <dt>
-        @Html.DisplayName("Total number of Station ") @Model.RouteInfo.Stations.Count()
-    </dt>
-
-    int i = 0;
-
-    foreach (var station in Model.RouteInfo.Stations)
-    {
-
-        <div style="width: 100%; height: 20px; border-bottom: 0px solid black;
-         text-align: center" align="center">
-            <span style="font-size: 20px; background-color: #F3F5F6; padding: 0 20px;">
-                @station.Name
-            </span>
-        </div>
-
-        if (i < Model.RouteInfo.Stations.Count() - 1)
-        {
-
-
-            <hr align="center" width="auto" class="hrVerticile">
-
-            <div class="verticalLine" align="center">
-                @Model.RouteInfo.Distance
-            </div>
-
-            <hr align="center" width="auto" class="hrVerticile">
-        }
-
-        i++;
-    }
-}
-
-
-@*map region end*@
-
-
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to Search", "Index")
+    </p>
