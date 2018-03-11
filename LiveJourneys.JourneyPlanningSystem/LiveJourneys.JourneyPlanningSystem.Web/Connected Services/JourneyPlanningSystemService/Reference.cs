@@ -27,6 +27,9 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsConnectingStaionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -54,6 +57,19 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsConnectingStaion {
+            get {
+                return this.IsConnectingStaionField;
+            }
+            set {
+                if ((this.IsConnectingStaionField.Equals(value) != true)) {
+                    this.IsConnectingStaionField = value;
+                    this.RaisePropertyChanged("IsConnectingStaion");
                 }
             }
         }
@@ -218,13 +234,22 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
         private int FromStaionIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FromStationsNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> IsDeleayField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int LineIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LineNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ToStationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ToStationsNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -263,6 +288,19 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FromStationsName {
+            get {
+                return this.FromStationsNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FromStationsNameField, value) != true)) {
+                    this.FromStationsNameField = value;
+                    this.RaisePropertyChanged("FromStationsName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> IsDeleay {
             get {
                 return this.IsDeleayField;
@@ -289,6 +327,19 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LineName {
+            get {
+                return this.LineNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LineNameField, value) != true)) {
+                    this.LineNameField = value;
+                    this.RaisePropertyChanged("LineName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int ToStationId {
             get {
                 return this.ToStationIdField;
@@ -297,6 +348,19 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
                 if ((this.ToStationIdField.Equals(value) != true)) {
                     this.ToStationIdField = value;
                     this.RaisePropertyChanged("ToStationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ToStationsName {
+            get {
+                return this.ToStationsNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ToStationsNameField, value) != true)) {
+                    this.ToStationsNameField = value;
+                    this.RaisePropertyChanged("ToStationsName");
                 }
             }
         }
@@ -325,6 +389,12 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
         private double DistanceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsSingleLineRouteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationMappingDetail[] RouteMappingDetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationDetail[] StationsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -346,6 +416,32 @@ namespace LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService {
                 if ((this.DistanceField.Equals(value) != true)) {
                     this.DistanceField = value;
                     this.RaisePropertyChanged("Distance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsSingleLineRoute {
+            get {
+                return this.IsSingleLineRouteField;
+            }
+            set {
+                if ((this.IsSingleLineRouteField.Equals(value) != true)) {
+                    this.IsSingleLineRouteField = value;
+                    this.RaisePropertyChanged("IsSingleLineRoute");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LiveJourneys.JourneyPlanningSystem.Web.JourneyPlanningSystemService.StationMappingDetail[] RouteMappingDetails {
+            get {
+                return this.RouteMappingDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RouteMappingDetailsField, value) != true)) {
+                    this.RouteMappingDetailsField = value;
+                    this.RaisePropertyChanged("RouteMappingDetails");
                 }
             }
         }

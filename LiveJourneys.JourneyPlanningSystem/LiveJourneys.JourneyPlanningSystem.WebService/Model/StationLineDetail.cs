@@ -7,6 +7,7 @@ using System.Web;
 
 namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
 {
+    [DataContract]
     public class StationLineDetail
     {
         public StationLineDetail()

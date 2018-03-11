@@ -7,6 +7,7 @@ using System.Web;
 
 namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
 {
+    [DataContract]
     public class StationDetail
     {
         public StationDetail()
@@ -22,14 +23,22 @@ namespace LiveJourneys.JourneyPlanningSystem.WebService.Model
             {
                 StationLineDetails.Add(new StationLineDetail(item));
             }
-            //this.StationLineDetails = station.StationLines;
-            //this.StationMappingDetails = station.StationMappingDetails;
+
+            IsConnectingStaion = StationLineDetails.Count > 0 ? true : false;
+
+            StationMappingDetails = new List<StationMappingDetail>();
+            foreach (var item in station.FromStationMappings)
+            {
+                StationMappingDetails.Add(new StationMappingDetail(item));
+            }
         }
 
         [DataMember]
         public int Id { get; set; }
         [DataMember]
         public string Name { get; set; }
+        [DataMember]
+        public bool IsConnectingStaion { get; set; }
 
         [DataMember]
         public virtual ICollection<StationLineDetail> StationLineDetails { get; set; }

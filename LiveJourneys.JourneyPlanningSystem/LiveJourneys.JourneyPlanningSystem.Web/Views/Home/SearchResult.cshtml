@@ -27,7 +27,15 @@
         else
         {
             <dt>
-                @Html.DisplayNameFor(model => model.RouteInfo.Distance)
+                @Html.DisplayName("Has Interchange")
+            </dt>
+
+            <dd>
+                @(Model.RouteInfo.IsSingleLineRoute ? "Yes" : "No")
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Distance")
             </dt>
 
             <dd>
@@ -40,6 +48,17 @@
             foreach (var item in Model.RouteInfo.Stations)
             {
                 <dd>@item.Name</dd>
+            }
+
+            <dt><b>Detailed Route path</b></dt>
+
+            foreach (var group in Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId))
+            {
+                <dd>Line - @group.First().LineName</dd>
+                foreach (var item in group)
+                {
+                    <dd>@(item.FromStationsName + "->" + item.ToStationsName)</dd>
+                }
             }
 
         }

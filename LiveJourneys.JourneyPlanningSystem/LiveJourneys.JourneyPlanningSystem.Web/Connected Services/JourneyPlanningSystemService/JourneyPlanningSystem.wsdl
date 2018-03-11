@@ -83,6 +83,7 @@
       <xs:complexType name="StationDetail">
         <xs:sequence>
           <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsConnectingStaion" type="xs:boolean" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="StationLineDetails" nillable="true" type="tns:ArrayOfStationLineDetail" />
           <xs:element minOccurs="0" name="StationMappingDetails" nillable="true" type="tns:ArrayOfStationMappingDetail" />
@@ -114,15 +115,20 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="Distance" type="xs:double" />
           <xs:element minOccurs="0" name="FromStaionId" type="xs:int" />
+          <xs:element minOccurs="0" name="FromStationsName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IsDeleay" nillable="true" type="xs:boolean" />
           <xs:element minOccurs="0" name="LineId" type="xs:int" />
+          <xs:element minOccurs="0" name="LineName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ToStationId" type="xs:int" />
+          <xs:element minOccurs="0" name="ToStationsName" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="StationMappingDetail" nillable="true" type="tns:StationMappingDetail" />
       <xs:complexType name="StationRouteInfo">
         <xs:sequence>
           <xs:element minOccurs="0" name="Distance" type="xs:double" />
+          <xs:element minOccurs="0" name="IsSingleLineRoute" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RouteMappingDetails" nillable="true" type="tns:ArrayOfStationMappingDetail" />
           <xs:element minOccurs="0" name="Stations" nillable="true" type="tns:ArrayOfStationDetail" />
         </xs:sequence>
       </xs:complexType>
