@@ -58,9 +58,9 @@
                 foreach (var item in group)
                 {
                     <dd>@(item.FromStationsName + "->" + item.ToStationsName)</dd>
+                    <dd>@("Travelling Distance: " + item.Distance + "km" )</dd>
                 }
             }
-
         }
 
     </dl>
@@ -113,11 +113,19 @@
         if (i < Model.RouteInfo.Stations.Count() - 1)
         {
 
-
             <hr align="center" width="auto" class="hrVerticile">
 
             <div class="verticalLine" align="center">
-                @Model.RouteInfo.Distance
+                @*@Model.RouteInfo.Distance*@
+
+                @foreach (var group in Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId))
+                {
+                    foreach (var item in group.Where( s => s.FromStaionId == station.Id))
+                    {
+                        @item.Distance;
+                    }
+                }
+
             </div>
 
             <hr align="center" width="auto" class="hrVerticile">
