@@ -20,6 +20,11 @@
             @Html.DisplayFor(model => model.SelectedToStationsName)
         </dd>
 
+        @{
+            int TimeSpendOnExchange = 0;
+            int TimeSpendOnEachStations = 0;
+        }
+
         @if (Model.RouteInfo.Stations.Count() == 0)
         {
             <dt><b>No route found</b></dt>
@@ -51,17 +56,28 @@
             }
 
             <dt><b>Detailed Route path</b></dt>
-
+            
             foreach (var group in Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId))
             {
                 <dd>Line - @group.First().LineName</dd>
+
                 foreach (var item in group)
                 {
+                    TimeSpendOnEachStations += 10;
+
                     <dd>@(item.FromStationsName + "->" + item.ToStationsName)</dd>
                     <dd>@("Travelling Distance: " + item.Distance + "km" )</dd>
                 }
             }
         }
+        </br>
+        <dd>
+            @{
+                TimeSpendOnExchange = (Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId).ToList().Count() * 15);
+            }
+            The total time on route exchange: @TimeSpendOnExchange min
+        </dd>
+        <dd>  Expected total travelling time: @(TimeSpendOnExchange + TimeSpendOnEachStations) mins</dd>
 
     </dl>
 </div>
@@ -120,7 +136,7 @@
 
                 @foreach (var group in Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId))
                 {
-                    foreach (var item in group.Where( s => s.FromStaionId == station.Id))
+                    foreach (var item in group.Where(s => s.FromStaionId == station.Id))
                     {
                         @item.Distance;
                     }
