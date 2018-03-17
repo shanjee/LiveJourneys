@@ -95,7 +95,10 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
                 }
             }
 
-            dgvAllLineDetails.DataSource = lineDetails;
+            dgvAllLineDetails.DataSource = lineDetails
+                                            .OrderBy(s => s.Line)
+                                            .ThenBy(s => s.StationOrder)
+                                            .ToList();
         }
     }
 
