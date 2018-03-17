@@ -102,5 +102,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
 
             return isAnyStation;
         }
+
+        public ICollection<Station> GetStationsByLineId(int lineId)
+        {
+            return unitOfWork.StationLines.Get(filter: s => s.LineId == lineId,includeProperties: "Station")
+                        .Select(s=> s.Station).ToList();
+        }
     }
 }

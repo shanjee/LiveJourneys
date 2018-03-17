@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DijkstraAlgorithm.cs" />
     <Compile Include="ManageStationLines.cs" />
+    <Compile Include="ManageStationMapping.cs" />
     <Compile Include="ManageStations.cs" />
     <Compile Include="RouteManager.cs" />
     <Compile Include="ManageLines.cs" />
