@@ -44,6 +44,11 @@ namespace LiveJourneys.JourneyPlanningSystem.Data
             dbContext.Set<TEntity>().Remove(entity);
         }
 
+        public void DeleteRange(IEnumerable<TEntity> entities)
+        {
+            dbContext.Set<TEntity>().RemoveRange(entities);
+        }
+
         /// <summary>
         /// 
         /// </summary>

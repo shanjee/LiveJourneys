@@ -71,6 +71,9 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
                 throw new InvalidOperationException("Invalid station. Station Id value is missing");
             }
 
+            unitOfWork.StationLines.DeleteRange(station.StationLines);
+            unitOfWork.StationMappings.DeleteRange(station.FromStationMappings);
+            unitOfWork.StationMappings.DeleteRange(station.ToStationMappings);
             unitOfWork.Stations.Delete(station);
             return unitOfWork.Complete();
         }

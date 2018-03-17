@@ -24,12 +24,12 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
 
         public int CreateLine(Line newLine)
         {
-            if(newLine == null)
+            if (newLine == null)
             {
                 throw new ArgumentNullException(nameof(newLine), "Train line should not be null");
             }
 
-            if(AnyLineExist(newLine.Name))
+            if (AnyLineExist(newLine.Name))
             {
                 throw new InvalidOperationException("Train Line already exists.");
             }
@@ -71,6 +71,9 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
                 throw new InvalidOperationException("Invalid train line. Line Id value is missing");
             }
 
+
+            unitOfWork.StationLines.DeleteRange(line.StationLines);
+            unitOfWork.StationMappings.DeleteRange(line.StationMappings);
             unitOfWork.TrainLines.Delete(line);
             return unitOfWork.Complete();
         }
@@ -82,7 +85,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
                 throw new ArgumentException("Train line name should not be null or empty");
             }
 
-            var line = unitOfWork.TrainLines.Get(filter:l => l.Name.Equals(lineName)).FirstOrDefault();
+            var line = unitOfWork.TrainLines.Get(filter: l => l.Name.Equals(lineName)).FirstOrDefault();
             return line;
         }
 
@@ -95,7 +98,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
 
             bool isAnyLine = false;
 
-            if(GetLineByName(lineName) != null)
+            if (GetLineByName(lineName) != null)
             {
                 isAnyLine = true;
             }

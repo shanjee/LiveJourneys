@@ -28,12 +28,12 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
                 throw new ArgumentNullException(nameof(newStationLine), "Station should not be null");
             }
 
-            if (AnyStationExist(newStationLine.LineId,newStationLine.StationId))
+            if (AnyStationExist(newStationLine.LineId, newStationLine.StationId))
             {
                 throw new InvalidOperationException("Station Line mapping already exists.");
             }
 
-            if (OrderNumberExists(newStationLine.LineId,newStationLine.OrderNumber))
+            if (OrderNumberExists(newStationLine.LineId, newStationLine.OrderNumber))
             {
                 throw new InvalidOperationException("Already given order number exists.");
             }
@@ -44,7 +44,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
 
         public IEnumerable<object> GetAllStationLinesNameOnly()
         {
-            return unitOfWork.StationLines.Get(includeProperties: "Line,Station").Select(sL => new { LineName = sL.Line.Name, StationName = sL.Station.Name, Order = sL.OrderNumber});
+            return unitOfWork.StationLines.Get(includeProperties: "Line,Station").Select(sL => new { LineName = sL.Line.Name, StationName = sL.Station.Name, Order = sL.OrderNumber });
         }
 
         public int Update(StationLine stationLine)
@@ -64,7 +64,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
                 throw new InvalidOperationException("Invalid station. Station Id value is missing");
             }
 
-            if (AnyStationExist(stationLine.LineId,stationLine.StationId))
+            if (AnyStationExist(stationLine.LineId, stationLine.StationId))
             {
                 throw new InvalidOperationException("Station Line mapping already exists.");
             }
@@ -94,6 +94,17 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
             return unitOfWork.Complete();
         }
 
+        public int DeleteRange(IEnumerable<StationLine> stationLines)
+        {
+            if (stationLines == null)
+            {
+                throw new ArgumentNullException(nameof(stationLines), "StationLines should not be null");
+            }
+
+            unitOfWork.StationLines.DeleteRange(stationLines);
+            return unitOfWork.Complete();
+        }
+
         public StationLine GetStationLineByIds(int lineId, int stationId)
         {
             var stationLine = unitOfWork.StationLines.Get(filter: sL => sL.LineId == lineId && sL.StationId == stationId).FirstOrDefault();
@@ -104,7 +115,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
         {
             bool isAnyStation = false;
 
-            if (GetStationLineByIds(lineId,stationId) != null)
+            if (GetStationLineByIds(lineId, stationId) != null)
             {
                 isAnyStation = true;
             }

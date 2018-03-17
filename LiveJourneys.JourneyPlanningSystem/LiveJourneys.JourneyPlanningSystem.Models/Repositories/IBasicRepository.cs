@@ -40,8 +40,13 @@ namespace LiveJourneys.JourneyPlanningSystem.Models.Repositories
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="entity"></param>
         void Delete(TEntity entity);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        void DeleteRange(IEnumerable<TEntity> entities);
     }
 }

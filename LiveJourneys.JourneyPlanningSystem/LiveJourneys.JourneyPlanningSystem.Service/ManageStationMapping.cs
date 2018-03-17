@@ -57,6 +57,17 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
             return unitOfWork.Complete();
         }
 
+        public int DeleteRange(IEnumerable<StationMapping> stationMappings)
+        {
+            if (stationMappings == null)
+            {
+                throw new ArgumentNullException(nameof(stationMappings), "StationLines should not be null");
+            }
+
+            unitOfWork.StationMappings.DeleteRange(stationMappings);
+            return unitOfWork.Complete();
+        }
+
         public bool AnyStationMappingExist(StationMapping stationMapping)
         {
             if(stationMapping == null)
