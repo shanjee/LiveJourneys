@@ -41,5 +41,10 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
         {
             new frmStationLineMapping().ShowDialog();
         }
+
+        private void tsbDistanceConfiguration_Click(object sender, EventArgs e)
+        {
+            new frmDistanceConfiguration().ShowDialog();
+        }
     }
 }

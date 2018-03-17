@@ -34,6 +34,7 @@
             this.tsbTrainLine = new System.Windows.Forms.ToolStripButton();
             this.tsbTrainStation = new System.Windows.Forms.ToolStripButton();
             this.tsbStationLineMapping = new System.Windows.Forms.ToolStripButton();
+            this.tsbDistanceConfiguration = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +44,8 @@
             this.tsbNewuser,
             this.tsbTrainLine,
             this.tsbTrainStation,
-            this.tsbStationLineMapping});
+            this.tsbStationLineMapping,
+            this.tsbDistanceConfiguration});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(753, 25);
@@ -86,6 +88,15 @@
             this.tsbStationLineMapping.Text = "Station Line Mapping";
             this.tsbStationLineMapping.Click += new System.EventHandler(this.tsbStationLineMapping_Click);
             // 
+            // tsbDistanceConfiguration
+            // 
+            this.tsbDistanceConfiguration.Image = ((System.Drawing.Image)(resources.GetObject("tsbDistanceConfiguration.Image")));
+            this.tsbDistanceConfiguration.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDistanceConfiguration.Name = "tsbDistanceConfiguration";
+            this.tsbDistanceConfiguration.Size = new System.Drawing.Size(149, 22);
+            this.tsbDistanceConfiguration.Text = "Distance Configuration";
+            this.tsbDistanceConfiguration.Click += new System.EventHandler(this.tsbDistanceConfiguration_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,5 +120,6 @@
         private System.Windows.Forms.ToolStripButton tsbTrainLine;
         private System.Windows.Forms.ToolStripButton tsbTrainStation;
         private System.Windows.Forms.ToolStripButton tsbStationLineMapping;
+        private System.Windows.Forms.ToolStripButton tsbDistanceConfiguration;
     }
 }
