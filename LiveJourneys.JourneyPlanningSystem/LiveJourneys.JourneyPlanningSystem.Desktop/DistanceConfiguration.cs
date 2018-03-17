@@ -85,7 +85,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
                     LineId = cmbTrainLine.SelectedValue != null ? (int)cmbTrainLine.SelectedValue : 0,
                     FromStaionId = cmbFromStation.SelectedValue != null ? (int)cmbFromStation.SelectedValue : 0,
                     ToStationId = cmbToStation.SelectedValue != null ? (int)cmbToStation.SelectedValue : 0,
-                    Distance = distance
+                    Distance = distance,
+                    IsDeleay = ckIsDeleay.Checked
                 };
 
                 var result = manageStationMapping.CreateStationMapping(stationMapping);
