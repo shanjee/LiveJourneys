@@ -56,17 +56,24 @@
             }
 
             <dt><b>Detailed Route path</b></dt>
-            
-            foreach (var group in Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId))
+
+            var gorupedData = Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId).ToList();
+            foreach (var group in gorupedData)
             {
-                <dd>Line - @group.First().LineName</dd>
+                if (gorupedData.IndexOf(group) == 0)
+                {
+                    <dd><b>Line - @group.First().LineName</b></dd>
+                }
 
                 foreach (var item in group)
                 {
                     TimeSpendOnEachStations += 10;
 
-                    <dd>@(item.FromStationsName + "->" + item.ToStationsName)</dd>
-                    <dd>@("Travelling Distance: " + item.Distance + "km" )</dd>
+                    <dd>@(item.FromStationsName + "->" + item.ToStationsName)  : @("Distance: " + item.Distance + "km" )</dd>
+                }
+                if (gorupedData.IndexOf(group) != gorupedData.Count - 1)
+                {
+                    <dd><b>Line - @group.First().LineName (Interchange)</b></dd>
                 }
             }
         }
@@ -152,6 +159,6 @@
 }
 
 
-@*map region end*@
+            @*map region end*@
 
 
