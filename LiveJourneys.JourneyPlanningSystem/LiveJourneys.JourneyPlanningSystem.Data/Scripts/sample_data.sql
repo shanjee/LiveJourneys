@@ -57,3 +57,14 @@ INSERT INTO [dbo].[StationMapping] ([FromStaionId], [ToStationId], [LineId], [Di
 INSERT INTO [dbo].[StationMapping] ([FromStaionId], [ToStationId], [LineId], [Distance], [IsDeleay]) VALUES (1001, 8, 3, 10, 0)
 INSERT INTO [dbo].[StationMapping] ([FromStaionId], [ToStationId], [LineId], [Distance], [IsDeleay]) VALUES (1002, 1003, 3, 10, 0)
 INSERT INTO [dbo].[StationMapping] ([FromStaionId], [ToStationId], [LineId], [Distance], [IsDeleay]) VALUES (1003, 1005, 3, 10, 0)
+
+
+-- User data
+
+SET IDENTITY_INSERT [dbo].[UserType] ON 
+INSERT UserType(UserTypeId,[Type]) VALUES ('1', 'Admin')
+INSERT UserType(UserTypeId,[Type]) VALUES ('2', 'Users')
+SET IDENTITY_INSERT [dbo].[UserType] OFF
+
+INSERT [User](UserName,[Password],TypeId) VALUES ('Admin','MXFhejJ3c3hA',1)
+INSERT [User](UserName,[Password],TypeId)  VALUES ('User','MXFhejJ3c3hA',2)

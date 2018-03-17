@@ -77,14 +77,21 @@
                 }
             }
         }
+
         </br>
-        <dd>
-            @{
-                TimeSpendOnExchange = ((Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId).ToList().Count() - 1) * 15);
-            }
-            The total time on route exchange: @TimeSpendOnExchange min
-        </dd>
-        <dd>  Expected total travelling time: @(TimeSpendOnExchange + TimeSpendOnEachStations) mins</dd>
+
+        @if (Model.RouteInfo.Stations.Count() > 0)
+        {
+            <dd>
+                @{
+                    TimeSpendOnExchange = ((Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId).ToList().Count() - 1) * 15);
+                }
+                The total time on route exchange: @TimeSpendOnExchange min
+            </dd>
+            <dd>  Expected total travelling time: @(TimeSpendOnExchange + TimeSpendOnEachStations) mins</dd>
+        }
+
+
 
     </dl>
 </div>
@@ -115,10 +122,14 @@
 
 @*map region start*@
 
+@{
+    int stationCount = @Model.RouteInfo.Stations.Count() - 1;
+}
+
 @if (@Model.RouteInfo.Distance > 0)
 {
     <dt>
-        @Html.DisplayName("Total number of Station ") @Model.RouteInfo.Stations.Count()
+        @Html.DisplayName("Total number of Station ") @stationCount
     </dt>
 
     int i = 0;
@@ -145,7 +156,7 @@
                 {
                     foreach (var item in group.Where(s => s.FromStaionId == station.Id))
                     {
-                        @item.Distance;
+                        @item.Distance; <span>km</span>
                     }
                 }
 
@@ -159,6 +170,6 @@
 }
 
 
-            @*map region end*@
+@*map region end*@
 
 
