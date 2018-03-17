@@ -33,10 +33,12 @@
             this.cmbStation = new System.Windows.Forms.ComboBox();
             this.cmbTrainLine = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.frmClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.frmClear = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtStationOrder = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainStations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +50,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTrainStations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTrainStations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTrainStations.Location = new System.Drawing.Point(12, 154);
+            this.dgvTrainStations.Location = new System.Drawing.Point(12, 187);
             this.dgvTrainStations.Name = "dgvTrainStations";
             this.dgvTrainStations.ReadOnly = true;
             this.dgvTrainStations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -60,16 +62,18 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.txtStationOrder);
             this.groupBox1.Controls.Add(this.cmbStation);
             this.groupBox1.Controls.Add(this.cmbTrainLine);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.frmClear);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 128);
+            this.groupBox1.Size = new System.Drawing.Size(295, 161);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Station Line Mapping Details";
@@ -94,7 +98,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(129, 89);
+            this.btnDelete.Location = new System.Drawing.Point(129, 117);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 5;
@@ -102,9 +106,19 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // frmClear
+            // 
+            this.frmClear.Location = new System.Drawing.Point(210, 117);
+            this.frmClear.Name = "frmClear";
+            this.frmClear.Size = new System.Drawing.Size(75, 23);
+            this.frmClear.TabIndex = 4;
+            this.frmClear.Text = "Clear";
+            this.frmClear.UseVisualStyleBackColor = true;
+            this.frmClear.Click += new System.EventHandler(this.frmClear_Click);
+            // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(48, 89);
+            this.btnAdd.Location = new System.Drawing.Point(48, 117);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 4;
@@ -115,7 +129,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 27);
+            this.label2.Location = new System.Drawing.Point(19, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 0;
@@ -130,21 +144,27 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Station Name : ";
             // 
-            // frmClear
+            // label3
             // 
-            this.frmClear.Location = new System.Drawing.Point(210, 89);
-            this.frmClear.Name = "frmClear";
-            this.frmClear.Size = new System.Drawing.Size(75, 23);
-            this.frmClear.TabIndex = 4;
-            this.frmClear.Text = "Clear";
-            this.frmClear.UseVisualStyleBackColor = true;
-            this.frmClear.Click += new System.EventHandler(this.frmClear_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Station Order : ";
+            // 
+            // txtStationOrder
+            // 
+            this.txtStationOrder.Location = new System.Drawing.Point(83, 83);
+            this.txtStationOrder.Name = "txtStationOrder";
+            this.txtStationOrder.Size = new System.Drawing.Size(202, 20);
+            this.txtStationOrder.TabIndex = 6;
             // 
             // frmStationLineMapping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 356);
+            this.ClientSize = new System.Drawing.Size(320, 389);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvTrainStations);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -171,5 +191,7 @@
         private System.Windows.Forms.ComboBox cmbStation;
         private System.Windows.Forms.ComboBox cmbTrainLine;
         private System.Windows.Forms.Button frmClear;
+        private System.Windows.Forms.TextBox txtStationOrder;
+        private System.Windows.Forms.Label label3;
     }
 }

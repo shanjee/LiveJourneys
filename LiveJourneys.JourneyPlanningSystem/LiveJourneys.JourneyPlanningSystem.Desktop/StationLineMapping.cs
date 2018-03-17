@@ -60,6 +60,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
         {
             cmbTrainLine.SelectedIndex = -1;
             cmbStation.SelectedIndex = -1;
+            txtStationOrder.Clear();
         }
 
         private bool ValidateInput()
@@ -68,6 +69,14 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
             if(cmbTrainLine.SelectedIndex < 0 || cmbStation.SelectedIndex < 0)
             {
                 MessageBox.Show("Staion Name or Train Line should not be selected.", "Station line mapping", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                isValid = false;
+            }
+
+            int.TryParse(txtStationOrder.Text, out int stationOrder);
+
+            if (stationOrder <= 0)
+            {
+                MessageBox.Show("Station Order shoud be greater than 0", "Station line mapping", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 isValid = false;
             }
 
@@ -80,7 +89,8 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
             {
                 if (ValidateInput())
                 {
-                    StationLine stationLine = new StationLine() { LineId = (int)cmbTrainLine.SelectedValue,  StationId = (int)cmbStation.SelectedValue};
+                    int.TryParse(txtStationOrder.Text, out int stationOrder);
+                    StationLine stationLine = new StationLine() { LineId = (int)cmbTrainLine.SelectedValue,  StationId = (int)cmbStation.SelectedValue, OrderNumber = stationOrder };
                     var result = manageStationLines.CreateStationLine(stationLine);
 
                     if (result > 0)

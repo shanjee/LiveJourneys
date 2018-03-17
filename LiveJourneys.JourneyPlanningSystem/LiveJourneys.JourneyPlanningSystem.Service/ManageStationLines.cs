@@ -33,13 +33,18 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
                 throw new InvalidOperationException("Station Line mapping already exists.");
             }
 
+            if (OrderNumberExists(newStationLine.LineId,newStationLine.OrderNumber))
+            {
+                throw new InvalidOperationException("Already given order number exists.");
+            }
+
             unitOfWork.StationLines.Add(newStationLine);
             return unitOfWork.Complete();
         }
 
         public IEnumerable<object> GetAllStationLinesNameOnly()
         {
-            return unitOfWork.StationLines.Get(includeProperties: "Line,Station").Select(sL => new { LineName = sL.Line.Name, StationName = sL.Station.Name});
+            return unitOfWork.StationLines.Get(includeProperties: "Line,Station").Select(sL => new { LineName = sL.Line.Name, StationName = sL.Station.Name, Order = sL.OrderNumber});
         }
 
         public int Update(StationLine stationLine)
@@ -105,6 +110,18 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
             }
 
             return isAnyStation;
+        }
+
+        public bool OrderNumberExists(int lineId, int orderNumber)
+        {
+            bool isValid = false;
+
+            if (GetAllStationLines().Any(l => l.LineId == lineId && l.OrderNumber == orderNumber))
+            {
+                isValid = true;
+            }
+
+            return isValid;
         }
 
         public ICollection<Station> GetAllStations()

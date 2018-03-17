@@ -35,7 +35,9 @@
             this.tsbTrainStation = new System.Windows.Forms.ToolStripButton();
             this.tsbStationLineMapping = new System.Windows.Forms.ToolStripButton();
             this.tsbDistanceConfiguration = new System.Windows.Forms.ToolStripButton();
+            this.dgvAllLineDetails = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllLineDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -97,17 +99,31 @@
             this.tsbDistanceConfiguration.Text = "Distance Configuration";
             this.tsbDistanceConfiguration.Click += new System.EventHandler(this.tsbDistanceConfiguration_Click);
             // 
+            // dgvAllLineDetails
+            // 
+            this.dgvAllLineDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAllLineDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAllLineDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAllLineDetails.Location = new System.Drawing.Point(0, 25);
+            this.dgvAllLineDetails.Name = "dgvAllLineDetails";
+            this.dgvAllLineDetails.ReadOnly = true;
+            this.dgvAllLineDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAllLineDetails.Size = new System.Drawing.Size(753, 311);
+            this.dgvAllLineDetails.TabIndex = 1;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(753, 336);
+            this.Controls.Add(this.dgvAllLineDetails);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Live Journey Planning System";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllLineDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,5 +137,6 @@
         private System.Windows.Forms.ToolStripButton tsbTrainStation;
         private System.Windows.Forms.ToolStripButton tsbStationLineMapping;
         private System.Windows.Forms.ToolStripButton tsbDistanceConfiguration;
+        private System.Windows.Forms.DataGridView dgvAllLineDetails;
     }
 }
