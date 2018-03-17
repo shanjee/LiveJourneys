@@ -18,8 +18,6 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
     {
         private ManageUsers manageUsers;
         private ManageUserTypes manageUserTypes;
-        private JourneyPlanningSystemDbContext _context = null;
-        private ICollection<UserType> userTypes;
 
         public frmNewuser()
         {
@@ -46,7 +44,7 @@ namespace LiveJourneys.JourneyPlanningSystem.Desktop
             txtUsername.Focus();
         }
 
-        private async void btnCreate_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             try
             {
