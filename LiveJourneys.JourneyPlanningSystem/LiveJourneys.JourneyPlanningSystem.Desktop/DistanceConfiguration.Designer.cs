@@ -36,8 +36,8 @@
             this.cmbToStation = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.ckIsDeleay = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnSetDistance = new System.Windows.Forms.Button();
             this.txtDistance = new LiveJourneys.JourneyPlanningSystem.Desktop.CustomControl.DistanceTextbox();
             this.groupBox1.SuspendLayout();
@@ -59,6 +59,7 @@
             this.cmbTrainLine.Name = "cmbTrainLine";
             this.cmbTrainLine.Size = new System.Drawing.Size(178, 21);
             this.cmbTrainLine.TabIndex = 1;
+            this.cmbTrainLine.SelectedIndexChanged += new System.EventHandler(this.cmbTrainLine_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -122,15 +123,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Station Distance Confiquration Details";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "isDeleay : ";
-            // 
             // ckIsDeleay
             // 
             this.ckIsDeleay.AutoSize = true;
@@ -140,6 +132,15 @@
             this.ckIsDeleay.TabIndex = 9;
             this.ckIsDeleay.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "isDeleay : ";
+            // 
             // btnSetDistance
             // 
             this.btnSetDistance.Location = new System.Drawing.Point(109, 192);
@@ -148,6 +149,7 @@
             this.btnSetDistance.TabIndex = 1;
             this.btnSetDistance.Text = "Set Distance";
             this.btnSetDistance.UseVisualStyleBackColor = true;
+            this.btnSetDistance.Click += new System.EventHandler(this.btnSetDistance_Click);
             // 
             // txtDistance
             // 
@@ -168,6 +170,7 @@
             this.Name = "frmDistanceConfiguration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Distance Configuration";
+            this.Load += new System.EventHandler(this.frmDistanceConfiguration_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

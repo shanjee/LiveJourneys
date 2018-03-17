@@ -38,9 +38,14 @@ namespace LiveJourneys.JourneyPlanningSystem.Business
                 throw new ArgumentException("Invalid To station. Station Id value is missing");
             }
 
-            if (newStationMapping.Distance > 50)
+            if (newStationMapping.ToStationId == newStationMapping.FromStaionId)
             {
-                throw new ArgumentException("Invalid Distance. Distance Should not exceed 50.");
+                throw new ArgumentException("From and To Station not be same.");
+            }
+
+            if (newStationMapping.Distance > 50 || newStationMapping.Distance <= 0)
+            {
+                throw new ArgumentException("Invalid Distance. Distance Should not exceed 50 but greater than 0.");
             }
 
             if(AnyStationMappingExist(newStationMapping))
