@@ -36,10 +36,10 @@
             this.cmbToStation = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDistance = new LiveJourneys.JourneyPlanningSystem.Desktop.CustomControl.DistanceTextbox();
             this.ckIsDeleay = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSetDistance = new System.Windows.Forms.Button();
-            this.txtDistance = new LiveJourneys.JourneyPlanningSystem.Desktop.CustomControl.DistanceTextbox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,6 +123,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Station Distance Confiquration Details";
             // 
+            // txtDistance
+            // 
+            this.txtDistance.Location = new System.Drawing.Point(83, 115);
+            this.txtDistance.Name = "txtDistance";
+            this.txtDistance.Size = new System.Drawing.Size(178, 20);
+            this.txtDistance.TabIndex = 7;
+            // 
             // ckIsDeleay
             // 
             this.ckIsDeleay.AutoSize = true;
@@ -150,13 +157,6 @@
             this.btnSetDistance.Text = "Set Distance";
             this.btnSetDistance.UseVisualStyleBackColor = true;
             this.btnSetDistance.Click += new System.EventHandler(this.btnSetDistance_Click);
-            // 
-            // txtDistance
-            // 
-            this.txtDistance.Location = new System.Drawing.Point(83, 115);
-            this.txtDistance.Name = "txtDistance";
-            this.txtDistance.Size = new System.Drawing.Size(178, 20);
-            this.txtDistance.TabIndex = 10;
             // 
             // frmDistanceConfiguration
             // 

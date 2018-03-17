@@ -87,7 +87,7 @@
             this.frmClear.Location = new System.Drawing.Point(128, 119);
             this.frmClear.Name = "frmClear";
             this.frmClear.Size = new System.Drawing.Size(75, 23);
-            this.frmClear.TabIndex = 6;
+            this.frmClear.TabIndex = 8;
             this.frmClear.Text = "Clear";
             this.frmClear.UseVisualStyleBackColor = true;
             this.frmClear.Click += new System.EventHandler(this.frmClear_Click);

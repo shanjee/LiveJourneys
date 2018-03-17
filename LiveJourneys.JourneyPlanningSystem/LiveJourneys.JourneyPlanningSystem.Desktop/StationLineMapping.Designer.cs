@@ -30,15 +30,15 @@
         {
             this.dgvTrainStations = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtStationOrder = new System.Windows.Forms.TextBox();
             this.cmbStation = new System.Windows.Forms.ComboBox();
             this.cmbTrainLine = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.frmClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtStationOrder = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainStations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +55,7 @@
             this.dgvTrainStations.ReadOnly = true;
             this.dgvTrainStations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrainStations.Size = new System.Drawing.Size(296, 190);
-            this.dgvTrainStations.TabIndex = 0;
+            this.dgvTrainStations.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -77,6 +77,13 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Station Line Mapping Details";
+            // 
+            // txtStationOrder
+            // 
+            this.txtStationOrder.Location = new System.Drawing.Point(83, 83);
+            this.txtStationOrder.Name = "txtStationOrder";
+            this.txtStationOrder.Size = new System.Drawing.Size(202, 20);
+            this.txtStationOrder.TabIndex = 5;
             // 
             // cmbStation
             // 
@@ -101,7 +108,7 @@
             this.btnDelete.Location = new System.Drawing.Point(129, 117);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 5;
+            this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -111,7 +118,7 @@
             this.frmClear.Location = new System.Drawing.Point(210, 117);
             this.frmClear.Name = "frmClear";
             this.frmClear.Size = new System.Drawing.Size(75, 23);
-            this.frmClear.TabIndex = 4;
+            this.frmClear.TabIndex = 8;
             this.frmClear.Text = "Clear";
             this.frmClear.UseVisualStyleBackColor = true;
             this.frmClear.Click += new System.EventHandler(this.frmClear_Click);
@@ -121,7 +128,7 @@
             this.btnAdd.Location = new System.Drawing.Point(48, 117);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -135,6 +142,15 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Train Line : ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Station Order : ";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -143,22 +159,6 @@
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Station Name : ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Station Order : ";
-            // 
-            // txtStationOrder
-            // 
-            this.txtStationOrder.Location = new System.Drawing.Point(83, 83);
-            this.txtStationOrder.Name = "txtStationOrder";
-            this.txtStationOrder.Size = new System.Drawing.Size(202, 20);
-            this.txtStationOrder.TabIndex = 6;
             // 
             // frmStationLineMapping
             // 
