@@ -80,7 +80,7 @@
         </br>
         <dd>
             @{
-                TimeSpendOnExchange = (Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId).ToList().Count() * 15);
+                TimeSpendOnExchange = ((Model.RouteInfo.RouteMappingDetails.GroupBy(x => x.LineId).ToList().Count() - 1) * 15);
             }
             The total time on route exchange: @TimeSpendOnExchange min
         </dd>
